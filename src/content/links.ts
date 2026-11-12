@@ -1,12 +1,12 @@
-// GLAECIER's official systems. The website only links to them – booking, payment, sign-up and
-// login stay on glaecier.com and Flexybox. Checked 2026-11-02 (Refinement 06 audit, docs/refinement-06.md):
-// none of them offers a public API or an approved embed, so the site's own /book/ and /signup/ pages introduce
-// the step and hand over to these URLs.
+// GLAECIER's official systems. Booking, payment, sign-up and login stay on them. Checked 2026-11-02 (Refinement 06
+// audit, docs/refinement-06.md): the glaecier.com forms offer no public API or approved embed, so /signup/ hands over
+// to these URLs. The booking app is the exception: it sends no X-Frame-Options or frame-ancestors (checked 2026-11-09),
+// so /book/ embeds it.
 import type { Locale } from "@/i18n/config";
 
 export const links = {
-  /** Open Gus calendar for non-members (live dates, gusmaster and seats; checkout via Flexybox). */
-  bookOpenGus: "https://glaecier.com/gus/",
+  /** Live booking app (calendar, seats, guest checkout via Flexybox), embedded on /book/. */
+  bookingApp: "https://book.glaecier.com/",
   /** Flexybox member login. */
   memberLogin: "https://profile.flexybox.com/glaecier/sign-in",
   /** Refshaleøen membership lobby sign-up form. */

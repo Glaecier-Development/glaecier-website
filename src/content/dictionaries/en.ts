@@ -192,19 +192,19 @@ export const en: Dictionary = {
       eyebrow: "Choose your gus",
       heading: "Two sessions every Tuesday evening",
       body: "Pick a date and time in Glaecier's booking calendar, where you can see the gusmaster and the seats available for each evening.",
-      card: {
-        label: "Your reservation",
-        experience: ["Experience", "Open Gus · for non-members"],
-        day: ["Day", "Every Tuesday"],
-        time: "Time",
-        slots: [
-          { name: "First session", time: "18:30–20:00" },
-          { name: "Second session", time: "20:30–22:00" },
-        ],
-        capacity: ["Group", "Up to 26 guests"],
-        gusmaster: ["Gusmaster", "Shown in the calendar"],
-        cta: "See available seats and book",
-        note: "The calendar, booking and payment are handled by Glaecier's official system on glaecier.com.",
+      booking: {
+        heading: "Find your moment.",
+        body: "Choose your session and reserve your place by the water.",
+        frameTitle: "Glaecier booking calendar",
+        loading: "Loading the calendar…",
+        slow: "The calendar is taking longer than usual. You can also open the booking in a new window below.",
+        failedTitle: "The calendar can't be reached right now",
+        failedBody: "Check your connection and try again, or open the booking in a new window.",
+        retry: "Try again",
+        note: "Booking and payment run on Glaecier's official booking system.",
+        // Shown once the app has moved the frame on to checkout. Progress can't be carried into a new window.
+        checkoutNote: "Payment opens here. If it doesn't appear, open the booking in a new window and choose your session again.",
+        open: "Open the booking in a new window",
       },
       stepsHeading: "How to book",
       steps: [
