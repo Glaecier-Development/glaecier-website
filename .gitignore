@@ -91,6 +91,7 @@ public/media/*
 !public/media/dsc08000-????.webp
 # Internal working docs and screenshots – local only
 docs/
+Claude outputs/
 
 # local env / OS / editor
 .env*
