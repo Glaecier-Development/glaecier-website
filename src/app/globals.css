@@ -113,29 +113,38 @@
   .hero-reveal {
     animation: rise 1.1s var(--d, 0.3s) var(--ease-calm) both;
   }
+  /* Menu: the backdrop fades in while the panel slides in from the left (Villa Copenhagen-style). */
   .menu-dialog {
     opacity: 0;
-    translate: 0 -0.75rem;
     transition:
-      opacity 0.45s var(--ease-calm),
-      translate 0.45s var(--ease-calm),
-      overlay 0.45s allow-discrete,
-      display 0.45s allow-discrete;
+      opacity 0.5s var(--ease-calm),
+      overlay 0.5s allow-discrete,
+      display 0.5s allow-discrete;
+    & .menu-panel {
+      translate: -100% 0;
+      transition: translate 0.6s var(--ease-calm);
+    }
     &[open] {
       opacity: 1;
+    }
+    &[open] .menu-panel {
       translate: 0;
     }
     &[open] .menu-item {
-      animation: rise 0.8s var(--ease-calm) both;
+      animation: rise 0.7s var(--ease-calm) both;
     }
-    &[open] .menu-item:nth-child(2) { animation-delay: 60ms; }
-    &[open] .menu-item:nth-child(3) { animation-delay: 120ms; }
-    &[open] .menu-item:nth-child(4) { animation-delay: 180ms; }
+    &[open] .menu-item:nth-child(1) { animation-delay: 120ms; }
+    &[open] .menu-item:nth-child(2) { animation-delay: 170ms; }
+    &[open] .menu-item:nth-child(3) { animation-delay: 220ms; }
+    &[open] .menu-item:nth-child(4) { animation-delay: 270ms; }
+    &[open] .menu-item:nth-child(5) { animation-delay: 320ms; }
   }
   @starting-style {
     .menu-dialog[open] {
       opacity: 0;
-      translate: 0 -0.75rem;
+    }
+    .menu-dialog[open] .menu-panel {
+      translate: -100% 0;
     }
   }
 }
