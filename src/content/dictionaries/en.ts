@@ -15,6 +15,7 @@ export const en: Dictionary = {
     label: "Main menu",
     skip: "Skip to content",
     menu: "Menu",
+    homeLabel: "Home",
     close: "Close menu",
     book: "Book",
     login: "Login",
@@ -41,7 +42,7 @@ export const en: Dictionary = {
     tagline: "Calm sauna experiences on the water in Copenhagen – with a focus on wellbeing, health and community.",
     primary: "Membership",
     secondary: "Book Open Gus",
-    video: { title: "A sanctuary on the water.", sub: "Sauna, bathing and community in Copenhagen.", membership: "Explore membership", scroll: "Scroll" },
+    video: { place: "Copenhagen", title: "A sanctuary on the water.", sub: "Sauna, bathing and community in Copenhagen.", membership: "Explore membership", scroll: "Scroll" },
     switcher: { label: "Hero variant (development only)", a: "A · Golden hour", b: "B · Nordic architecture", video: "Video" },
   },
   intro: {

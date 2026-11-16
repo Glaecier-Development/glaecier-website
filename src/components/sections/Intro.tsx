@@ -6,7 +6,7 @@ import { Photo } from "@/components/ui/Photo";
 /** Typography-led pause after the hero: one statement, one sentence, one quiet human moment. */
 export function Intro({ t, locale }: { t: Dictionary; locale: Locale }) {
   return (
-    <section aria-labelledby="intro-title" className="pt-24 pb-28 md:pt-40 md:pb-48">
+    <section id="intro" aria-labelledby="intro-title" className="pt-24 pb-28 md:pt-40 md:pb-48">
       <div className="container-page grid gap-y-16 md:grid-cols-12 md:gap-x-10">
         <div className="md:col-span-11">
           <p className="eyebrow reveal text-wood">{t.intro.eyebrow}</p>

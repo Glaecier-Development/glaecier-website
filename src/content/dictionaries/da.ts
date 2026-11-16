@@ -21,6 +21,7 @@ export const da = {
     label: "Hovedmenu",
     skip: "Spring til indhold",
     menu: "Menu",
+    homeLabel: "Forside",
     close: "Luk menu",
     book: "Book",
     login: "Log ind",
@@ -50,7 +51,7 @@ export const da = {
     primary: "Medlemskab",
     secondary: "Book Open Gus",
     // DRAFT – client-proposed direction (2026-10-30)
-    video: { title: "Et frirum på vandet.", sub: "Sauna, bad og fællesskab i København.", membership: "Udforsk medlemskab", scroll: "Rul ned" },
+    video: { place: "København", title: "Et frirum på vandet.", sub: "Sauna, bad og fællesskab i København.", membership: "Udforsk medlemskab", scroll: "Rul ned" },
     switcher: { label: "Hero-variant (kun udvikling)", a: "A · Gylden time", b: "B · Nordisk arkitektur", video: "Video" },
   },
   intro: {

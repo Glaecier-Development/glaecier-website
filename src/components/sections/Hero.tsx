@@ -103,43 +103,30 @@ function HeroNordic({ t, locale }: Props) {
  * the footage stays the main attraction. Source: "Glacier intro Final 1", 62.0–66.0 s + 67.48–89.8 s (26.3 s; the
  * pool-signage shot is cut) with the burned-in subtitle band cropped off; see docs/refinement-05.md.
  */
-function HeroVideo({ t, locale }: Props) {
+function HeroVideo({ t }: Props) {
   const v = t.hero.video;
   const reveal = (step: number) => ({ "--d": `${0.3 + step * 0.12}s` }) as CSSProperties;
   return (
-    <section data-hero aria-labelledby="hero-title" className="hero-film relative isolate flex min-h-[34rem] items-end overflow-hidden bg-ink text-paper">
+    <section data-hero aria-labelledby="hero-title" className="hero-film relative isolate flex min-h-[34rem] items-center justify-center overflow-hidden bg-ink text-paper">
       <HeroFilm />
-      {/* Header band: just enough for the white navigation to read over bright frames. */}
-      <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-ink/55 via-ink/20 to-transparent" />
-      {/* Copy area: a low, long fade from the bottom plus a gentle wash from the left on wide screens. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(28_27_25/0.88)_0%,rgb(28_27_25/0.55)_24%,rgb(28_27_25/0.18)_46%,transparent_62%)] md:bg-[linear-gradient(to_top,rgb(28_27_25/0.72)_0%,rgb(28_27_25/0.32)_28%,transparent_55%)]"
-      />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-ink/55 via-ink/15 via-40% to-transparent to-65% md:block" />
+      {/* Villa Copenhagen-style: an even, gentle darkening so the centred logo reads on every frame of the film. */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/30" />
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-ink/50 to-transparent" />
 
-      <div className="container-page pb-[max(2.25rem,calc(env(safe-area-inset-bottom)+1.5rem))] sm:pb-14 md:pb-[clamp(3.5rem,9svh,6.5rem)]">
-        {/* A soft shadow keeps white type legible on the film's brightest, overcast frames without darkening it all. */}
-        <div className="hero-reveal w-[min(62vw,24rem)] drop-shadow-[0_2px_24px_rgb(0_0_0/0.35)] md:w-[min(36vw,34rem)]" style={reveal(0)}>
+      <div className="flex flex-col items-center px-6 text-center">
+        {/* A soft shadow keeps white type legible on the film's brightest, overcast frames. */}
+        <div className="hero-reveal w-[min(64vw,20rem)] drop-shadow-[0_2px_24px_rgb(0_0_0/0.35)] md:w-[min(30vw,24rem)]" style={reveal(0)}>
           <Title />
         </div>
-        <p className="hero-reveal mt-6 font-serif text-[1.75rem] leading-[1.15] font-light text-balance [text-shadow:0_1px_16px_rgb(0_0_0/0.35)] md:mt-7 md:text-4xl" style={reveal(1)}>
-          {v.title}
+        <p className="eyebrow hero-reveal mt-5 text-paper/90 [text-shadow:0_1px_12px_rgb(0_0_0/0.4)] md:mt-6" style={reveal(1)}>
+          {v.place}
         </p>
-        <p className="hero-reveal mt-2 max-w-xs text-sm leading-relaxed text-paper/80 [text-shadow:0_1px_12px_rgb(0_0_0/0.4)] md:max-w-sm md:text-lg md:text-paper/90" style={reveal(2)}>
-          {v.sub}
-        </p>
-        <div className="hero-reveal mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-x-7 md:mt-9 md:gap-x-3" style={reveal(3)}>
-          {/* Full-width primary action on phones. */}
-          <InternalAction href={pages.book(locale)} variant="solid" className="max-sm:w-full">
-            {t.hero.secondary}
-          </InternalAction>
-          {/* Text link on phones (keeps the first screen compact), outlined button from md up. */}
-          <InternalAction href={pages.signup(locale)} variant="text" className="md:border md:border-current/60 md:bg-none md:px-7 md:py-4 md:hover:border-current md:hover:bg-paper/10">
-            {v.membership}
-          </InternalAction>
-        </div>
+        <p className="sr-only">{v.title} {v.sub}</p>
       </div>
+
+      <a href="#intro" className="eyebrow hero-reveal absolute bottom-[max(1.75rem,calc(env(safe-area-inset-bottom)+1rem))] left-1/2 -translate-x-1/2 text-[0.6875rem] text-paper/80 hover:text-paper" style={reveal(2)}>
+        {v.scroll}
+      </a>
     </section>
   );
 }
