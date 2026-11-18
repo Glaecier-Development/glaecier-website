@@ -103,7 +103,7 @@ function HeroNordic({ t, locale }: Props) {
  * the footage stays the main attraction. Source: "Glacier intro Final 1", 62.0–66.0 s + 67.48–89.8 s (26.3 s; the
  * pool-signage shot is cut) with the burned-in subtitle band cropped off; see docs/refinement-05.md.
  */
-function HeroVideo({ t }: Props) {
+function HeroVideo({ t, locale }: Props) {
   const v = t.hero.video;
   const reveal = (step: number) => ({ "--d": `${0.3 + step * 0.12}s` }) as CSSProperties;
   return (
@@ -122,9 +122,19 @@ function HeroVideo({ t }: Props) {
           {v.place}
         </p>
         <p className="sr-only">{v.title} {v.sub}</p>
+        {/* The two ways in, as quiet text links under the place name: the film stays the main attraction. */}
+        <div className="hero-reveal mt-10 flex items-center gap-5 text-paper [text-shadow:0_1px_12px_rgb(0_0_0/0.4)] md:mt-12" style={reveal(2)}>
+          <InternalAction href={`${pages.book(locale)}#booking`} variant="text">
+            {t.hero.secondary}
+          </InternalAction>
+          <span aria-hidden="true" className="h-3 w-px bg-paper/50" />
+          <InternalAction href={pages.signup(locale)} variant="text">
+            {t.hero.primary}
+          </InternalAction>
+        </div>
       </div>
 
-      <a href="#intro" className="eyebrow hero-reveal absolute bottom-[max(1.75rem,calc(env(safe-area-inset-bottom)+1rem))] left-1/2 -translate-x-1/2 text-[0.6875rem] text-paper/80 hover:text-paper" style={reveal(2)}>
+      <a href="#intro" className="eyebrow hero-reveal absolute bottom-[max(1.75rem,calc(env(safe-area-inset-bottom)+1rem))] left-1/2 -translate-x-1/2 text-[0.6875rem] text-paper/80 hover:text-paper" style={reveal(3)}>
         {v.scroll}
       </a>
     </section>
