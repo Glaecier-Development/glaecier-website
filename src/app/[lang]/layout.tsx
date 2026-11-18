@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Newsreader } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { BookingDialog } from "@/components/ui/BookingDialog";
 import { getDictionary } from "@/content/dictionaries";
 import { isLocale, locales } from "@/i18n/config";
 import { pageMetadata } from "@/lib/metadata";
@@ -37,6 +38,7 @@ export default async function RootLayout({ children, params }: Props) {
           {t.nav.skip}
         </a>
         {children}
+        <BookingDialog text={{ ...t.nav.bookingDialog, frame: { ...t.book.sessions.booking, newTab: t.nav.newTab } }} />
       </body>
     </html>
   );

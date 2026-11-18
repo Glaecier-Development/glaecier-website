@@ -26,6 +26,8 @@ export const da = {
     login: "Log ind",
     home: "Glaecier – forside",
     newTab: "(åbner i en ny fane)",
+    // Pop-up with the live booking app, opened by every "Book" button.
+    bookingDialog: { title: "Book Open Gus", close: "Luk bookingen" },
     language: { label: "Sprog", current: "DA", switchTo: "English" },
     items: [
       { id: "membership", label: "Medlemskab", children: [] },

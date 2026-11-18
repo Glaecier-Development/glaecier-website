@@ -20,6 +20,7 @@ export const en: Dictionary = {
     login: "Login",
     home: "Glaecier – home",
     newTab: "(opens in a new tab)",
+    bookingDialog: { title: "Book Open Gus", close: "Close booking" },
     language: { label: "Language", current: "EN", switchTo: "Dansk" },
     items: [
       { id: "membership", label: "Membership", children: [] },
