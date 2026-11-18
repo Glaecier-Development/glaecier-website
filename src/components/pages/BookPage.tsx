@@ -3,6 +3,7 @@ import { links, pages } from "@/content/links";
 import { media } from "@/content/media";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/config";
+import { BookingFrame } from "@/components/ui/BookingFrame";
 import { buttonClass, ExternalAction, InternalAction } from "@/components/ui/buttons";
 import { PageHero } from "@/components/ui/PageHero";
 import { Photo } from "@/components/ui/Photo";
@@ -14,18 +15,16 @@ type Props = { t: Dictionary; locale: Locale };
 const frames = ["aspect-[4/5]", "aspect-[4/5] md:mt-24", "aspect-[4/5] md:mt-12"];
 
 /**
- * Book Open Gus. glaecier.com exposes no public availability API (the calendar is rendered server-side by its
- * Flexybox WordPress plugin, with no CORS access for other origins), so this page never shows dates, gusmasters or
- * seats itself: it presents the fixed, published schedule as a reservation summary and hands over to the official
- * calendar, where booking and payment happen. See docs/refinement-06.md.
+ * Book Open Gus. The page never shows dates, gusmasters or seats itself: it embeds Glaecier's live booking app
+ * (book.glaecier.com), where the calendar, booking and Flexybox payment happen, with a link to open it on its own.
  */
 export function BookPage({ t, locale }: Props) {
   const b = t.book;
-  const card = b.sessions.card;
+  const booking = b.sessions.booking;
   return (
     <>
       <PageHero item={media.book.hero} locale={locale} eyebrow={b.eyebrow} title={b.title} intro={b.intro}>
-        <a href="#sessions" className={buttonClass("solid", "max-sm:w-full")}>
+        <a href="#booking" className={buttonClass("solid", "max-sm:w-full")}>
           {b.primary}
         </a>
         <a href="#expect" className={buttonClass("text", "md:border md:border-current/60 md:bg-none md:px-7 md:py-4 md:hover:border-current md:hover:bg-paper/10")}>
@@ -33,14 +32,16 @@ export function BookPage({ t, locale }: Props) {
         </a>
       </PageHero>
 
-      {/* Choose your session: the published schedule as a reservation summary, then the official calendar. */}
+      {/* Choose your session: how booking works, then the live booking app itself. */}
       <section id="sessions" aria-labelledby="sessions-title" className="bg-paper py-24 md:py-40">
-        <div className="container-page grid gap-y-16 lg:grid-cols-12 lg:gap-x-10">
+        <div className="container-page grid gap-y-14 lg:grid-cols-12 lg:gap-x-10">
           <div className="lg:col-span-5 lg:pt-4">
             <SectionIntro eyebrow={b.sessions.eyebrow} heading={b.sessions.heading} headingId="sessions-title" className="text-wood [&_h2]:text-ink" />
             <p className="reveal mt-6 max-w-md text-lg leading-relaxed text-stone">{b.sessions.body}</p>
+          </div>
 
-            <h3 className="eyebrow reveal mt-14 text-wood">{b.sessions.stepsHeading}</h3>
+          <div className="lg:col-span-6 lg:col-start-7 lg:pt-4">
+            <h3 className="eyebrow reveal text-wood">{b.sessions.stepsHeading}</h3>
             <ol className="mt-6 border-t border-ink/15">
               {b.sessions.steps.map((step, i) => (
                 <li key={step.title} className="reveal grid grid-cols-[2.75rem_1fr] border-b border-ink/15 py-6">
@@ -53,46 +54,25 @@ export function BookPage({ t, locale }: Props) {
               ))}
             </ol>
           </div>
+        </div>
 
-          <div className="lg:col-span-6 lg:col-start-7">
-            <article aria-labelledby="reservation-title" className="reveal bg-ink p-7 text-paper sm:p-10 lg:sticky lg:top-32 xl:p-14">
-              <h3 id="reservation-title" className="eyebrow text-fog">
-                {card.label}
-              </h3>
-              <dl className="mt-8 divide-y divide-paper/15 border-y border-paper/15">
-                {[card.experience, card.day].map(([label, value]) => (
-                  <div key={label} className="grid gap-1 py-5 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                    <dt className="eyebrow pt-1 text-fog">{label}</dt>
-                    <dd className="font-serif text-2xl font-light">{value}</dd>
-                  </div>
-                ))}
-                <div className="grid gap-3 py-5 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                  <dt className="eyebrow pt-1 text-fog">{card.time}</dt>
-                  <dd>
-                    <ul className="grid gap-3 sm:grid-cols-2">
-                      {card.slots.map((slot) => (
-                        <li key={slot.time} className="border border-paper/20 px-4 py-4 xl:px-5">
-                          <span className="eyebrow block text-fog">{slot.name}</span>
-                          <span className="mt-2 block font-serif text-2xl leading-none font-light whitespace-nowrap tabular-nums xl:text-[1.75rem]">{slot.time}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </dd>
-                </div>
-                {[card.capacity, card.gusmaster].map(([label, value]) => (
-                  <div key={label} className="grid gap-1 py-5 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                    <dt className="eyebrow pt-1 text-fog">{label}</dt>
-                    <dd className="text-paper/85">{value}</dd>
-                  </div>
-                ))}
-              </dl>
-              <ExternalAction href={links.bookOpenGus} newTab={t.nav.newTab} variant="solid" className="mt-10 w-full text-center whitespace-normal!">
-                {card.cta}
-                <span aria-hidden="true">↗</span>
-              </ExternalAction>
-              <p className="mt-5 text-xs leading-relaxed text-fog">{card.note}</p>
-            </article>
-          </div>
+        {/* The live booking app in a charcoal frame. On phones it is one screen tall under the header (the hero's
+            "book" button lands here) with a thin dark edge left to scroll the page by; the app scrolls inside itself
+            because a cross-origin frame can't report its height. The frame never exceeds the screen in landscape. */}
+        <div className="container-page mt-16 md:mt-24">
+          {/* No entrance animation: its offset would throw off the jump to #booking. */}
+          <article aria-labelledby="booking-title" className="-mx-5 bg-ink px-5 pt-12 pb-8 text-paper sm:mx-0 sm:p-10 xl:p-14">
+            <h3 id="booking-title" className="font-serif text-4xl leading-[1.05] font-light md:text-6xl">
+              {booking.heading}
+            </h3>
+            <p className="mt-4 max-w-lg text-lg leading-relaxed text-paper/75">{booking.body}</p>
+            <BookingFrame
+              id="booking"
+              src={links.bookingApp}
+              text={{ ...booking, newTab: t.nav.newTab }}
+              className="-mx-2 mt-10 h-[calc(100svh-7rem)] lg:scroll-mt-3 min-h-[15rem] sm:mx-0 md:h-[min(85svh,56rem,calc(100svh-7rem))]"
+            />
+          </article>
         </div>
       </section>
 

@@ -27,6 +27,8 @@ export const da = {
     login: "Log ind",
     home: "Glaecier – forside",
     newTab: "(åbner i en ny fane)",
+    // Pop-up with the live booking app, opened by every "Book" button.
+    bookingDialog: { title: "Book Open Gus", close: "Luk bookingen" },
     language: { label: "Sprog", current: "DA", switchTo: "English" },
     items: [
       { id: "membership", label: "Medlemskab", children: [] },
@@ -232,20 +234,20 @@ export const da = {
       eyebrow: "Vælg din gus",
       heading: "To hold hver tirsdag aften", // VERIFIED (schedule on /gus)
       body: "Vælg dato og tid i Glaeciers bookingkalender. Her ser du gusmester og ledige pladser for hver aften.",
-      card: {
-        label: "Din reservation",
-        experience: ["Oplevelse", "Open Gus · for ikke-medlemmer"],
-        day: ["Dag", "Hver tirsdag"],
-        time: "Tid",
-        slots: [
-          { name: "Første hold", time: "18:30–20:00" },
-          { name: "Andet hold", time: "20:30–22:00" },
-        ],
-        // VERIFIED – every session in the official calendar shows x/26 seats.
-        capacity: ["Hold", "Op til 26 gæster"],
-        gusmaster: ["Gusmester", "Vises i kalenderen"],
-        cta: "Se ledige pladser og book",
-        note: "Kalender, booking og betaling foregår i Glaeciers officielle system på glaecier.com.",
+      // The live booking system (book.glaecier.com) is embedded below this heading.
+      booking: {
+        heading: "Find dit øjeblik.",
+        body: "Vælg dit hold, og reservér din plads ved vandet.",
+        frameTitle: "Glaeciers bookingkalender",
+        loading: "Henter kalenderen…",
+        slow: "Kalenderen er længere tid om at hente end normalt. Du kan også åbne bookingen i et nyt vindue nedenfor.",
+        failedTitle: "Kalenderen kan ikke hentes lige nu",
+        failedBody: "Tjek din forbindelse og prøv igen, eller åbn bookingen i et nyt vindue.",
+        retry: "Prøv igen",
+        // The booking app has no Danish version (checked 2026-11-09), so say so rather than surprise.
+        note: "Booking og betaling foregår i Glaeciers officielle bookingsystem, som er på engelsk.",
+        checkoutNote: "Betalingen åbner her. Hvis den ikke vises, så åbn bookingen i et nyt vindue og vælg dit hold igen.",
+        open: "Åbn bookingen i et nyt vindue",
       },
       stepsHeading: "Sådan booker du",
       // VERIFIED (the flow on /gus → /hold/)
