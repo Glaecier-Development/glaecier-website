@@ -25,7 +25,6 @@ export const en: Dictionary = {
     language: { label: "Language", current: "EN", switchTo: "Dansk" },
     items: [
       { id: "membership", label: "Membership", children: [] },
-      { id: "experiences", label: "Experiences", children: [] },
       {
         id: "private-corporate",
         label: "Private & Corporate",

@@ -32,7 +32,6 @@ export const da = {
     language: { label: "Sprog", current: "DA", switchTo: "English" },
     items: [
       { id: "membership", label: "Medlemskab", children: [] },
-      { id: "experiences", label: "Oplevelser", children: [] },
       {
         id: "private-corporate",
         label: "Privat & Erhverv",
@@ -65,9 +64,10 @@ export const da = {
     subtitle: "Sauna og fællesskab – midt i København",
     body: "Glaecier er et flydende saunafællesskab i København, hvor ro, sundhed og fællesskab mødes året rundt. Et sted på vandet, hvor man kan trække sig tilbage fra byens tempo og finde nærvær midt i det hele. Anlægget er udformet som en moderne husbåd med panorama-sauna, omklædning og rolige opholdsrum samt en flydende pool med rent, filtreret havnevand. Her bevæger man sig mellem varme og kulde i en enkel og sanselig oplevelse.",
     cta: "Book",
-    refshaleoen: "Tilmelding Refshaleøen",
-    havnegade: "Tilmelding Havnegade",
-    book: "Book saunagus",
+    // The tile labels stay English on both languages (client, 2026-11-19).
+    refshaleoen: "Sign-up Refshaleøen",
+    havnegade: "Sign-up Havnegade",
+    book: "Book Sauna Gus",
   },
   intro: {
     eyebrow: "Glaecier · Refshaleøen",

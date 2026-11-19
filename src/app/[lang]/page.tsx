@@ -2,7 +2,6 @@ import { getDictionary } from "@/content/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { Experiences } from "@/components/sections/Experiences";
 import { Facilities } from "@/components/sections/Facilities";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
@@ -26,7 +25,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Quicklinks {...props} />
         <Intro {...props} />
         <Facilities {...props} />
-        <Experiences {...props} />
         <Membership {...props} />
         <Locations {...props} />
         <PrivateHire {...props} />
