@@ -123,10 +123,6 @@ function HeroVideo({ t }: Props) {
         </p>
         <p className="sr-only">{v.title} {v.sub}</p>
       </div>
-
-      <a href="#intro" className="eyebrow hero-reveal absolute bottom-[max(1.75rem,calc(env(safe-area-inset-bottom)+1rem))] left-1/2 -translate-x-1/2 text-[0.6875rem] text-paper/80 hover:text-paper" style={reveal(2)}>
-        {v.scroll}
-      </a>
     </section>
   );
 }

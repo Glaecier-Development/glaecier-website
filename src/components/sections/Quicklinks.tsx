@@ -3,7 +3,9 @@ import type { Dictionary } from "@/content/dictionaries";
 import { links, pages } from "@/content/links";
 import { media, type MediaItem } from "@/content/media";
 import type { Locale } from "@/i18n/config";
+import { InternalAction } from "@/components/ui/buttons";
 import { Photo } from "@/components/ui/Photo";
+import { Wordmark } from "@/components/ui/Wordmark";
 
 /**
  * Three photo tiles straight under the hero, each one a way in: the two official sign-up forms (new tab, as everywhere
@@ -40,22 +42,37 @@ export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
   );
 
   return (
-    <nav aria-label={q.label} className="px-2 pt-2 sm:px-3 sm:pt-3">
-      <ul className="grid gap-2 sm:gap-3 md:grid-cols-3">
-        {tiles.map(({ href, label, item, external }) => (
-          <li key={href}>
-            {external ? (
-              <a href={href} target="_blank" rel="noopener noreferrer" className={tile}>
-                {content(label, item, external)}
-              </a>
-            ) : (
-              <Link prefetch={false} href={href} className={tile}>
-                {content(label, item, external)}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <section aria-labelledby="welcome-title" className="pt-20 md:pt-28">
+      {/* Welcome: name, one line, one paragraph and the booking button, then the three tiles. */}
+      <div className="container-page mb-14 md:mb-20">
+        {/* The heading is the wordmark itself, as in the site header; the name stays in the text for screen readers. */}
+        <h2 id="welcome-title" className="reveal">
+          <Wordmark className="h-14 sm:h-20 md:h-24" />
+          <span className="sr-only">{q.title}</span>
+        </h2>
+        <p className="reveal mt-8 font-serif text-3xl leading-tight font-light md:mt-10 md:text-4xl">{q.subtitle}</p>
+        <p className="reveal mt-5 max-w-2xl text-lg leading-relaxed text-stone">{q.body}</p>
+        <InternalAction href={pages.book(locale)} variant="outline" className="reveal mt-9">
+          {q.cta}
+        </InternalAction>
+      </div>
+      <nav aria-label={q.label} className="px-2 sm:px-3">
+        <ul className="grid gap-2 sm:gap-3 md:grid-cols-3">
+          {tiles.map(({ href, label, item, external }) => (
+            <li key={href}>
+              {external ? (
+                <a href={href} target="_blank" rel="noopener noreferrer" className={tile}>
+                  {content(label, item, external)}
+                </a>
+              ) : (
+                <Link prefetch={false} href={href} className={tile}>
+                  {content(label, item, external)}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </section>
   );
 }
