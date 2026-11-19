@@ -21,10 +21,10 @@ export const en: Dictionary = {
     login: "Login",
     home: "Glaecier – home",
     newTab: "(opens in a new tab)",
+    bookingDialog: { title: "Book Open Gus", close: "Close booking" },
     language: { label: "Language", current: "EN", switchTo: "Dansk" },
     items: [
       { id: "membership", label: "Membership", children: [] },
-      { id: "experiences", label: "Experiences", children: [] },
       {
         id: "private-corporate",
         label: "Private & Corporate",
@@ -42,8 +42,18 @@ export const en: Dictionary = {
     tagline: "Calm sauna experiences on the water in Copenhagen – with a focus on wellbeing, health and community.",
     primary: "Membership",
     secondary: "Book Open Gus",
-    video: { place: "Copenhagen", title: "A sanctuary on the water.", sub: "Sauna, bathing and community in Copenhagen.", membership: "Explore membership", scroll: "Scroll" },
+    video: { place: "Copenhagen", title: "A sanctuary on the water.", sub: "Sauna, bathing and community in Copenhagen.", membership: "Explore membership" },
     switcher: { label: "Hero variant (development only)", a: "A · Golden hour", b: "B · Nordic architecture", video: "Video" },
+  },
+  quicklinks: {
+    label: "Shortcuts",
+    title: "Glaecier",
+    subtitle: "Sauna and community – in the heart of Copenhagen",
+    body: "Glaecier is a floating sauna community in Copenhagen, where calm, health and community meet all year round. A place on the water where you can step away from the pace of the city and find presence in the middle of it all. The facility is designed as a modern houseboat with a panorama sauna, changing rooms and quiet lounges, plus a floating pool of clean, filtered harbour water. Here you move between heat and cold in a simple, sensory experience.",
+    cta: "Book",
+    refshaleoen: "Sign-up Refshaleøen",
+    havnegade: "Sign-up Havnegade",
+    book: "Book Sauna Gus",
   },
   intro: {
     eyebrow: "Glaecier · Refshaleøen",

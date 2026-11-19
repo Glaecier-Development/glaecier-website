@@ -44,6 +44,17 @@ export const media = {
       mobile: m("dsc07608", "Poolen set fra trappen, med pergola og havn bagved", "The pool seen from the steps, with the pergola and harbour beyond", "50% 60%"),
     },
   },
+  // Three photo tiles under the hero. Havnegade only ever gets the client's harbour view, never a Refshaleøen photo.
+  quicklinks: {
+    refshaleoen: m("dsc07608", "Poolen på Refshaleøen set fra trappen, med pergola og havn bagved", "The pool at Refshaleøen seen from the steps, with the pergola and harbour beyond", "50% 60%"),
+    havnegade: m(
+      "havnegade-havnebus",
+      "Havnen ved solnedgang med en gul havnebus på vandet og byens tårne bag kajen",
+      "The harbour at sunset with a yellow harbour bus on the water and the city's spires beyond the quay",
+      "70% 50%",
+    ),
+    book: m("dsc07649", "En gusmester gør klar i saunaen med et håndklæde", "A gusmaster preparing in the sauna with a towel", "58% 40%"),
+  },
   // A quiet human moment straight after the hero: a guest by the window, seen through glass and reflections.
   intro: m(
     "solnedgang-over-havnen",
@@ -115,7 +126,7 @@ export const media = {
   og: m("dsc07485", "Glaecier ved Refshaleøen", "Glaecier at Refshaleøen"),
   // Book Open Gus page (/book/).
   book: {
-    hero: m("dsc07649", "En gusmester gør klar i saunaen med et håndklæde", "A gusmaster preparing in the sauna with a towel", "58% 40%"),
+    hero: m("dsc07850", "Panorama-saunaen med træbænke, sten og vinduer mod havnen", "The panorama sauna with timber benches, stones and windows to the harbour", "50% 55%"),
     heat: m("dsc07838", "Spanden med vand ved saunaens varme sten", "The water bucket by the sauna's hot stones", "50% 45%"),
     cold: m("dsc07898", "Trappen ned i den flydende pool under pergolaen", "The steps down into the floating pool beneath the pergola", "45% 70%"),
     rest: m("dsc08000", "Palmer i loungen med udsigt til poolen", "Palms in the lounge with a view of the pool", "45% 50%"),
