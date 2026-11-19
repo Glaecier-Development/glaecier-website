@@ -56,6 +56,13 @@ export const da = {
     video: { place: "København", title: "Et frirum på vandet.", sub: "Sauna, bad og fællesskab i København.", membership: "Udforsk medlemskab", scroll: "Rul ned" },
     switcher: { label: "Hero-variant (kun udvikling)", a: "A · Gylden time", b: "B · Nordisk arkitektur", video: "Video" },
   },
+  // Three photo tiles straight under the hero (client, 2026-11-19).
+  quicklinks: {
+    label: "Genveje",
+    refshaleoen: "Tilmelding Refshaleøen",
+    havnegade: "Tilmelding Havnegade",
+    book: "Book saunagus",
+  },
   intro: {
     eyebrow: "Glaecier · Refshaleøen",
     statement: "Varme, kulde og havnen – midt i København.", // DRAFT

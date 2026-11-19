@@ -46,6 +46,12 @@ export const en: Dictionary = {
     video: { place: "Copenhagen", title: "A sanctuary on the water.", sub: "Sauna, bathing and community in Copenhagen.", membership: "Explore membership", scroll: "Scroll" },
     switcher: { label: "Hero variant (development only)", a: "A · Golden hour", b: "B · Nordic architecture", video: "Video" },
   },
+  quicklinks: {
+    label: "Shortcuts",
+    refshaleoen: "Sign-up Refshaleøen",
+    havnegade: "Sign-up Havnegade",
+    book: "Book Sauna Gus",
+  },
   intro: {
     eyebrow: "Glaecier · Refshaleøen",
     statement: "Heat, cold and the harbour – in the middle of Copenhagen.",
