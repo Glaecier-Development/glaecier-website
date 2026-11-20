@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Dictionary } from "@/content/dictionaries";
 import { site } from "@/content/site";
-import { locales, type Locale } from "@/i18n/config";
+import { publishedLocales, type Locale } from "@/i18n/config";
 import { links, pages, type Page } from "@/content/links";
 import { InternalAction } from "@/components/ui/buttons";
 import { Wordmark } from "@/components/ui/Wordmark";
@@ -23,7 +23,7 @@ const externalChild: Record<string, string> = { refshaleoen: links.signupRefshal
 function LanguageSwitch({ t, locale, page, className = "" }: { t: HeaderText; locale: Locale; page: Page; className?: string }) {
   return (
     <div role="group" aria-label={t.nav.language.label} className={`eyebrow flex items-center gap-1.5 ${className}`}>
-      {locales.map((l, i) => (
+      {publishedLocales.map((l, i) => (
         <span key={l} className="flex items-center gap-1.5">
           {i > 0 && <span aria-hidden="true" className="opacity-40">/</span>}
           <Link prefetch={false}
@@ -230,9 +230,12 @@ export function SiteHeader({ t, locale, page = "home" }: { t: HeaderText; locale
                   </dd>
                 </div>
               </dl>
-              <div className="flex justify-end border-t border-ink/15 pt-4 text-sm text-stone">
-                <LanguageSwitch t={t} locale={locale} page={page} />
-              </div>
+              {/* Hidden while only English is published. */}
+              {publishedLocales.length > 1 && (
+                <div className="flex justify-end border-t border-ink/15 pt-4 text-sm text-stone">
+                  <LanguageSwitch t={t} locale={locale} page={page} />
+                </div>
+              )}
             </div>
           </div>
           {/* Clicking the photo closes the menu, like clicking outside it. */}

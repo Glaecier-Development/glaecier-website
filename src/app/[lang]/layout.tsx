@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { BookingDialog } from "@/components/ui/BookingDialog";
 import { getDictionary } from "@/content/dictionaries";
-import { isLocale, locales } from "@/i18n/config";
+import { isLocale, publishedLocales } from "@/i18n/config";
 import { pageMetadata } from "@/lib/metadata";
 import "../globals.css";
 
@@ -15,7 +15,7 @@ const serif = Newsreader({ subsets: ["latin"], variable: "--font-newsreader", di
 type Props = { children: ReactNode; params: Promise<{ lang: string }> };
 
 export const dynamicParams = false;
-export const generateStaticParams = () => locales.map((lang) => ({ lang }));
+export const generateStaticParams = () => publishedLocales.map((lang) => ({ lang }));
 
 export const viewport: Viewport = { themeColor: "#1c1b19" };
 
@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
 
 export default async function RootLayout({ children, params }: Props) {
   const { lang } = await params;
-  if (!isLocale(lang)) notFound();
+  // Only published languages render (English only, 2026-11-20); /da/ is a forward to /en/ (public/da/).
+  if (!isLocale(lang) || !(publishedLocales as readonly string[]).includes(lang)) notFound();
   const t = getDictionary(lang);
   // data-scroll-behavior lets Next switch off smooth scrolling during page changes, so a new page opens at the top.
   return (

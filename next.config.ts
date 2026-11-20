@@ -17,10 +17,10 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 1080, 1600, 2560],
     imageSizes: [320],
   },
-  // Danish is the primary language. In dev "/" redirects here; the static export uses public/index.html instead.
+  // English only (2026-11-20). In dev "/" redirects here; the static export uses public/index.html instead.
   ...(process.env.NODE_ENV === "development" && {
     async redirects() {
-      return [{ source: "/", destination: "/da/", permanent: false }];
+      return [{ source: "/", destination: "/en/", permanent: false }];
     },
   }),
 };

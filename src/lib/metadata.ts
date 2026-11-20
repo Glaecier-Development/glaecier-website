@@ -11,7 +11,7 @@ export function pageMetadata(lang: Locale, { title, description, path = "" }: { 
     metadataBase: new URL(site.url),
     title,
     description,
-    alternates: { canonical: `${lang}/${path}`, languages: { da: `da/${path}`, en: `en/${path}`, "x-default": `da/${path}` } },
+    alternates: { canonical: `${lang}/${path}`, languages: { en: `en/${path}`, "x-default": `en/${path}` } }, // English only (2026-11-20)
     openGraph: {
       type: "website",
       siteName: site.name,

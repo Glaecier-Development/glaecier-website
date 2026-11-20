@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/content/dictionaries";
 import { site } from "@/content/site";
-import { locales, type Locale } from "@/i18n/config";
+import { publishedLocales, type Locale } from "@/i18n/config";
 import { links, pages, type Page } from "@/content/links";
 import { Wordmark } from "@/components/ui/Wordmark";
 
@@ -102,22 +102,25 @@ export function SiteFooter({ t, locale, page = "home" }: { t: Dictionary; locale
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
-          <ul aria-label={f.language} className="flex gap-5">
-            {locales.map((l) => (
-              <li key={l}>
-                <Link
-                  prefetch={false}
-                  href={pages[page](l)}
-                  hrefLang={l}
-                  lang={l}
-                  aria-current={l === locale ? "page" : undefined}
-                  className="eyebrow inline-block py-2 opacity-70 transition-opacity hover:opacity-100 aria-[current=page]:text-paper aria-[current=page]:opacity-100"
-                >
-                  {l === "da" ? "Dansk" : "English"}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Hidden while only English is published. */}
+          {publishedLocales.length > 1 && (
+            <ul aria-label={f.language} className="flex gap-5">
+              {(publishedLocales as readonly Locale[]).map((l) => (
+                <li key={l}>
+                  <Link
+                    prefetch={false}
+                    href={pages[page](l)}
+                    hrefLang={l}
+                    lang={l}
+                    aria-current={l === locale ? "page" : undefined}
+                    className="eyebrow inline-block py-2 opacity-70 transition-opacity hover:opacity-100 aria-[current=page]:text-paper aria-[current=page]:opacity-100"
+                  >
+                    {l === "da" ? "Dansk" : "English"}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
           <p>{f.disclaimer}</p>
         </div>
       </div>
