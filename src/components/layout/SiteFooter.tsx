@@ -9,14 +9,14 @@ const heading = "eyebrow text-paper/60";
 const link = "link-underline py-1 uppercase tracking-[0.08em]";
 
 /**
- * Closing scene in Glaecier blue (Pantone 2738 C), laid out like Villa Copenhagen's footer: the wordmark centred on top,
+ * Closing scene in dark charcoal, laid out like Villa Copenhagen's footer: the wordmark centred on top,
  * then visit / contact / hours / explore in centred columns, and a quiet bottom line. No partner logos yet.
  */
 export function SiteFooter({ t, locale, page = "home" }: { t: Dictionary; locale: Locale; page?: Page }) {
   const f = t.footer;
   const home = page === "home" ? "" : pages.home(locale);
   return (
-    <footer className="bg-glaecier-blue pt-20 pb-10 text-paper md:pt-28">
+    <footer className="bg-charcoal pt-20 pb-10 text-paper md:pt-28">
       <div className="container-page text-center">
         <Link prefetch={false} href={pages.home(locale)} aria-label={t.nav.home} className="inline-block">
           <Wordmark className="h-12 md:h-16" />
