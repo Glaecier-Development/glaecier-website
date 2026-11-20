@@ -9,6 +9,7 @@
   --color-harbour: #233743;
   --color-mist: #cfd6d6;
   --color-fog: #b9b0a4; /* muted text on ink/harbour */
+  --color-charcoal: #1f1f1f; /* dark grey, almost black (client, 2026-11-20); footer background */
 
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;

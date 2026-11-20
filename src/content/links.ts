@@ -13,6 +13,8 @@ export const links = {
   signupRefshaleoen: "https://glaecier.com/signup-refshaleoen/",
   /** Havnegade pre-registration form. */
   signupHavnegade: "https://glaecier.com/signup-havnegade/",
+  /** Bring a Friend: how members bring guests (prices, peak hours, rules). */
+  bringAFriend: "https://glaecier.com/baf",
   /** Membership and subscription terms (linked from the official sign-up form). */
   membershipTerms: "https://glaecier.com/glaeciers-membership-and-subscription-terms/",
   faq: { da: "https://glaecier.com/faq/", en: "https://glaecier.com/en/faq-en/" } satisfies Record<Locale, string>,

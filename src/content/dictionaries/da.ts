@@ -21,29 +21,40 @@ export const da = {
     label: "Hovedmenu",
     skip: "Spring til indhold",
     menu: "Menu",
-    homeLabel: "Forside",
+    // Menu labels are English on both languages (client, 2026-11-20).
+    homeLabel: "Home",
     close: "Luk menu",
     book: "Book",
-    login: "Log ind",
     home: "Glaecier – forside",
     newTab: "(åbner i en ny fane)",
     // Pop-up with the live booking app, opened by every "Book" button.
     bookingDialog: { title: "Book Open Gus", close: "Luk bookingen" },
     language: { label: "Sprog", current: "DA", switchTo: "English" },
+    // Ids pick the target (see SiteHeader): membership → /signup/, its children → the official forms, book → booking
+    // pop-up, the rest → sections of the homepage.
     items: [
-      { id: "membership", label: "Medlemskab", children: [] },
       {
-        id: "private-corporate",
-        label: "Privat & Erhverv",
-        // Future separate pages; anchors into the homepage for now.
+        id: "membership",
+        label: "Sign up for membership",
         children: [
-          { id: "private-hire", label: "Privat leje" },
-          { id: "corporate-events", label: "Firmaarrangementer" },
-          { id: "brand-activations", label: "Brand-aktiveringer" },
+          { id: "refshaleoen", label: "Refshaleøen – join the lobby" },
+          { id: "havnegade", label: "Havnegade – pre-register" },
         ],
       },
-      { id: "our-story", label: "Vores historie", children: [] },
+      { id: "book", label: "Book Sauna Gus", children: [] },
+      {
+        id: "private-corporate",
+        label: "Rent Glaecier",
+        children: [
+          { id: "private-hire", label: "Private Hire" },
+          { id: "corporate-events", label: "Corporate Events" },
+          { id: "brand-activations", label: "Brand Activations" },
+        ],
+      },
+      { id: "our-story", label: "Our Story", children: [] },
     ],
+    // No phone number is published on glaecier.com (checked 2026-11-20), so the menu shows address, email and Instagram.
+    contact: { address: "Address", city: "1432 Copenhagen", email: "Email", instagram: "Instagram" },
   },
   hero: {
     line: "Sauna og bad på vandet i København", // DRAFT (condensed from tagline)
@@ -56,18 +67,25 @@ export const da = {
     video: { place: "Copenhagen", title: "Et frirum på vandet.", sub: "Sauna, bad og fællesskab i København.", membership: "Udforsk medlemskab" },
     switcher: { label: "Hero-variant (kun udvikling)", a: "A · Gylden time", b: "B · Nordisk arkitektur", video: "Video" },
   },
-  // Three photo tiles straight under the hero (client, 2026-11-19).
+  // Welcome text and side-scrolling cards: English on both languages (client, 2026-11-20: "everything in English").
+  // Card facts checked against glaecier.com, /gus, /baf and the FAQ on 2026-11-20 (VERIFIED): Open Gus 399 kr, three rounds,
+  // open to non-members; BAF members only, up to two friends, from 249 kr per guest in the app; Havnegade opens 2027;
+  // lobby sign-up free and without obligation; events by enquiry, Thursday evenings ideal.
   quicklinks: {
-    label: "Genveje",
-    // Text block above the tiles (client-provided, 2026-11-19).
+    label: "Shortcuts",
     title: "Glaecier",
-    subtitle: "Sauna og fællesskab – midt i København",
-    body: "Glaecier er et flydende saunafællesskab i København, hvor ro, sundhed og fællesskab mødes året rundt. Et sted på vandet, hvor man kan trække sig tilbage fra byens tempo og finde nærvær midt i det hele. Anlægget er udformet som en moderne husbåd med panorama-sauna, omklædning og rolige opholdsrum samt en flydende pool med rent, filtreret havnevand. Her bevæger man sig mellem varme og kulde i en enkel og sanselig oplevelse.",
+    subtitle: "Sauna and community – in the heart of Copenhagen",
+    body: "Glaecier is a floating sauna community in Copenhagen, where calm, health and community meet all year round. A place on the water where you can step away from the pace of the city and find presence in the middle of it all. The facility is designed as a modern houseboat with a panorama sauna, changing rooms and quiet lounges, plus a floating pool of clean, filtered harbour water. Here you move between heat and cold in a simple, sensory experience.",
     cta: "Book",
-    // The tile labels stay English on both languages (client, 2026-11-19).
-    refshaleoen: "Sign-up Refshaleøen",
-    havnegade: "Sign-up Havnegade",
-    book: "Book Sauna Gus",
+    previous: "Previous",
+    next: "Next",
+    cards: {
+      refshaleoen: { tag: "Membership", title: "Sign-up Refshaleøen", body: "Join the membership lobby at Refshaleøen. It's free and without obligation.", cta: "Join the lobby" },
+      havnegade: { tag: "Opens 2027", title: "Sign-up Havnegade", body: "Pre-register without obligation and be the first to hear when membership at Havnegade opens.", cta: "Pre-register" },
+      book: { tag: "Open Gus", title: "Book Sauna Gus", body: "Open Gus is for everyone – no membership needed. A guided sauna gus with three rounds for 399 DKK.", cta: "Book" },
+      baf: { tag: "For members", title: "Bring a Friend", body: "As a member you can bring up to two friends – from 249 DKK per guest, bought in the app.", cta: "Read more" },
+      hire: { tag: "Private & Corporate", title: "Private Hire", body: "Host your event at Glaecier. Thursday evenings are the ideal time.", cta: "Read more" },
+    },
   },
   intro: {
     eyebrow: "Glaecier · Refshaleøen",
@@ -366,15 +384,24 @@ export const da = {
     privacy: "Tilmeldingen foregår i Glaeciers officielle formular på glaecier.com, hvor du også accepterer vilkår og privatlivspolitik. Denne side gemmer ingen oplysninger.",
     gus: { heading: "Vil du opleve Glaecier uden at være medlem?", cta: "Book Open Gus" }, // VERIFIED
   },
+  // Footer, Villa Copenhagen-style without partner logos (client, 2026-11-20). English on both languages.
   footer: {
-    signup: "Bliv medlem",
-    contact: "Kontakt",
-    more: "Mere",
-    faq: "Ofte stillede spørgsmål",
-    book: "Book Open Gus",
-    login: "Medlemslogin",
+    tagline: "Sauna and community – in the heart of Copenhagen",
+    visit: "Visit",
+    city: "1432 Copenhagen",
+    directions: "Directions",
+    contact: "Contact",
     instagram: "Instagram",
-    disclaimer: "Prototype af ny hjemmeside – ikke den officielle glaecier.com.",
+    hours: "Members’ opening hours",
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    hoursNote: "Tuesday evenings are reserved for Open Gus.",
+    explore: "Explore",
+    signup: "Sign up for membership",
+    book: "Book Sauna Gus",
+    hire: "Rent Glaecier",
+    faq: "FAQ",
+    language: "Language",
+    disclaimer: "Prototype of a new website – not the official glaecier.com.",
   },
 };
 

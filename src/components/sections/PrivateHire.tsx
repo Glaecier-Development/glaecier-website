@@ -57,6 +57,15 @@ export function PrivateHire({ t, locale }: { t: Dictionary; locale: Locale }) {
           </div>
         </div>
       </div>
+
+      {/* Event gallery: moments from past events on the deck and in the sauna (client, 2026-11-20). */}
+      <ul className="container-page mt-20 grid grid-cols-2 gap-2 sm:gap-3 md:mt-28 md:grid-cols-3">
+        {media.hire.gallery.map((photo) => (
+          <li key={photo.slug}>
+            <Photo item={photo} locale={locale} sizes="(min-width: 768px) 30vw, 48vw" effect="reveal" className="aspect-[4/5]" />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

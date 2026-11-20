@@ -16,6 +16,17 @@ export type MediaItem = {
 
 const m = (slug: Slug, da: string, en: string, position?: string): MediaItem => ({ slug, alt: { da, en }, position });
 
+// Event photos (client, 2026-11-20), shown as pairs in the Private Hire card and as a gallery in the event section.
+// Most are small copies (280–630 px wide); larger originals would look sharper.
+const events = {
+  bar: m("event-bar", "Baren ved et arrangement med juice, dåser og blomster foran den skulpturelle væg", "The bar at an event with juices, cans and flowers in front of the sculptural wall", "50% 40%"),
+  samsung: m("event-samsung-sauna", "Saunaen ved et brand-arrangement med logo på ruden og havnen bagved", "The sauna at a brand event with a logo on the window and the harbour beyond", "45% 50%"),
+  yogaPool: m("event-yoga-ved-poolen", "Yoga på dækket langs poolen med havnen bagved", "Yoga on the deck along the pool with the harbour beyond", "50% 45%"),
+  buffet: m("event-buffet", "Buffet på dækket med brød, skåle og glas", "A buffet on the deck with bread, bowls and glasses", "50% 50%"),
+  yogaMats: m("event-yoga-paa-maatter", "Gæster ligger på yogamåtter ved poolen", "Guests lying on yoga mats by the pool", "50% 50%"),
+  glasses: m("event-wellness-club", "Glas med låg fra et wellness-arrangement", "Lidded glasses from a wellness event", "50% 50%"),
+};
+
 export const media = {
   heroes: {
     // Option A – Golden hour. Only a 1086×1448 phone photo exists; soft on large screens until the original file is supplied.
@@ -53,7 +64,15 @@ export const media = {
       "The harbour at sunset with a yellow harbour bus on the water and the city's spires beyond the quay",
       "70% 50%",
     ),
-    book: m("dsc07649", "En gusmester gør klar i saunaen med et håndklæde", "A gusmaster preparing in the sauna with a towel", "58% 40%"),
+    // Client's choice (2026-11-20). Only a 364×253 copy exists; a larger original would look sharper in the tile.
+    book: m("glaecier-sauna", "Panorama-saunaen med træbænke og åben facade ud mod havnen", "The panorama sauna with timber benches and an open front facing the harbour", "50% 50%"),
+    baf: m("dsc08152", "Gæster i saunaen, set gennem grønne blade", "Guests in the sauna, seen through green leaves", "55% 50%"),
+    // Event photos two at a time, cycling (see PhotoCycle).
+    hire: [
+      [events.bar, events.samsung],
+      [events.yogaPool, events.buffet],
+      [events.yogaMats, events.glasses],
+    ],
   },
   // A quiet human moment straight after the hero: a guest by the window, seen through glass and reflections.
   intro: m(
@@ -114,6 +133,7 @@ export const media = {
     // A brand morning on the deck: guests between rounds, then the event's welcome sign.
     guests: m("event-gaester-i-haandklaeder", "Gæster i stribede håndklæder hviler på trædækket mellem saunarunderne", "Guests in striped towels resting on the deck between sauna rounds"),
     event: m("event-velkomst-paa-daekket", "Velkomstskilt til et brand-arrangement på dækket, med produkter og håndklæder på podier", "Welcome sign for a brand event on the deck, with products and towels on plinths"),
+    gallery: [events.yogaPool, events.bar, events.buffet, events.samsung, events.yogaMats, events.glasses],
   },
   // An archive photo of the old harbour opens the harbour-blue Our Story section: the 250-year tradition, shown.
   // Only a 555×349 copy exists (client, 2026-11-04); a larger scan would look sharper on wide screens.
