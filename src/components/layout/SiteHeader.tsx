@@ -13,9 +13,12 @@ type NavItem = Dictionary["nav"]["items"][number];
 // Only what the header needs, so the full dictionary isn't serialised into the client bundle.
 export type HeaderText = Pick<Dictionary, "nav" | "prototype">;
 
-/** Where a nav item points: Membership has its own page; the rest are sections of the homepage. */
+/** Where a nav item points: Membership has its own page, Book opens the booking pop-up; the rest are homepage sections. */
 const itemHref = (id: string, locale: Locale, page: Page) =>
-  id === "membership" ? pages.signup(locale) : page === "home" ? `#${id}` : `${pages.home(locale)}#${id}`;
+  id === "membership" ? pages.signup(locale) : id === "book" ? pages.book(locale) : page === "home" ? `#${id}` : `${pages.home(locale)}#${id}`;
+
+/** Sub-items that leave the site: the official sign-up forms (opened in a new tab, as everywhere else). */
+const externalChild: Record<string, string> = { refshaleoen: links.signupRefshaleoen, havnegade: links.signupHavnegade };
 
 function LanguageSwitch({ t, locale, page, className = "" }: { t: HeaderText; locale: Locale; page: Page; className?: string }) {
   return (
@@ -43,7 +46,7 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const menuPhoto = `${base}/media/poolkant-ved-solnedgang-1080.webp`;
 
 /** One row in the menu: an uppercase link with a hairline below; items with children get a +/- toggle. */
-function MenuRow({ item, href, base: home, close }: { item: NavItem; href: string; base: string; close: () => void }) {
+function MenuRow({ item, href, base: home, close, newTab }: { item: NavItem; href: string; base: string; close: () => void; newTab: string }) {
   const [open, setOpen] = useState(false);
   return (
     <li className="menu-item border-b border-ink/15">
@@ -69,9 +72,16 @@ function MenuRow({ item, href, base: home, close }: { item: NavItem; href: strin
         <ul id={`menu-${item.id}`} hidden={!open} className="pb-4">
           {item.children.map((child) => (
             <li key={child.id}>
-              <Link prefetch={false} href={`${home}#${child.id}`} onClick={close} className="block py-2 pl-4 text-base text-stone transition-colors hover:text-ink">
-                {child.label}
-              </Link>
+              {externalChild[child.id] ? (
+                <a href={externalChild[child.id]} target="_blank" rel="noopener noreferrer" onClick={close} className="block py-2 pl-4 text-base text-stone transition-colors hover:text-ink">
+                  {child.label} <span aria-hidden="true">↗</span>
+                  <span className="sr-only"> {newTab}</span>
+                </a>
+              ) : (
+                <Link prefetch={false} href={`${home}#${child.id}`} onClick={close} className="block py-2 pl-4 text-base text-stone transition-colors hover:text-ink">
+                  {child.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -177,7 +187,7 @@ export function SiteHeader({ t, locale, page = "home" }: { t: HeaderText; locale
                   </Link>
                 </li>
                 {t.nav.items.map((item) => (
-                  <MenuRow key={item.id} item={item} href={itemHref(item.id, locale, page)} base={home} close={close} />
+                  <MenuRow key={item.id} item={item} href={itemHref(item.id, locale, page)} base={home} close={close} newTab={t.nav.newTab} />
                 ))}
               </ul>
             </nav>
@@ -191,10 +201,38 @@ export function SiteHeader({ t, locale, page = "home" }: { t: HeaderText; locale
                   {t.nav.login}
                 </ExternalAction>
               </div>
-              <div className="flex items-center justify-between border-t border-ink/15 pt-5 text-sm text-stone">
-                <a href={`mailto:${site.email}`} className="hover:text-ink">
-                  {site.email}
-                </a>
+              {/* Contact, Villa-style: label left, value right. */}
+              <dl className="space-y-3 border-t border-ink/15 pt-5 text-sm">
+                <div className="flex justify-between gap-6">
+                  <dt className="eyebrow pt-0.5 text-stone">{t.nav.contact.address}</dt>
+                  <dd className="text-right uppercase">
+                    <a href={links.directions} target="_blank" rel="noopener noreferrer" className="hover:text-wood">
+                      {site.address.street}
+                      <br />
+                      {t.nav.contact.city}
+                      <span className="sr-only"> {t.nav.newTab}</span>
+                    </a>
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-6">
+                  <dt className="eyebrow pt-0.5 text-stone">{t.nav.contact.email}</dt>
+                  <dd className="text-right">
+                    <a href={`mailto:${site.email}`} className="hover:text-wood">
+                      {site.email}
+                    </a>
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-6">
+                  <dt className="eyebrow pt-0.5 text-stone">{t.nav.contact.instagram}</dt>
+                  <dd className="text-right">
+                    <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="hover:text-wood">
+                      {site.instagram.handle}
+                      <span className="sr-only"> {t.nav.newTab}</span>
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+              <div className="flex justify-end border-t border-ink/15 pt-4 text-sm text-stone">
                 <LanguageSwitch t={t} locale={locale} page={page} />
               </div>
             </div>

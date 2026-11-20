@@ -28,6 +28,8 @@ export function BookingDialog({ text }: { text: Dictionary["nav"]["bookingDialog
       e.preventDefault();
       e.stopPropagation();
       setOpened(true);
+      // A Book link inside the site menu: close the menu, so it isn't still open behind the booking.
+      document.querySelectorAll<HTMLDialogElement>("dialog[open]").forEach((d) => d !== dialog.current && d.close());
       dialog.current?.showModal();
       document.documentElement.style.overflow = "hidden";
     };

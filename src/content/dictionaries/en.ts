@@ -24,10 +24,18 @@ export const en: Dictionary = {
     bookingDialog: { title: "Book Open Gus", close: "Close booking" },
     language: { label: "Language", current: "EN", switchTo: "Dansk" },
     items: [
-      { id: "membership", label: "Membership", children: [] },
+      {
+        id: "membership",
+        label: "Sign up for membership",
+        children: [
+          { id: "refshaleoen", label: "Refshaleøen – join the lobby" },
+          { id: "havnegade", label: "Havnegade – pre-register" },
+        ],
+      },
+      { id: "book", label: "Book Sauna Gus", children: [] },
       {
         id: "private-corporate",
-        label: "Private & Corporate",
+        label: "Rent Glaecier",
         children: [
           { id: "private-hire", label: "Private Hire" },
           { id: "corporate-events", label: "Corporate Events" },
@@ -36,6 +44,7 @@ export const en: Dictionary = {
       },
       { id: "our-story", label: "Our Story", children: [] },
     ],
+    contact: { address: "Address", city: "1432 Copenhagen", email: "Email", instagram: "Instagram" },
   },
   hero: {
     line: "Sauna and bathing on the water in Copenhagen",
@@ -51,9 +60,15 @@ export const en: Dictionary = {
     subtitle: "Sauna and community – in the heart of Copenhagen",
     body: "Glaecier is a floating sauna community in Copenhagen, where calm, health and community meet all year round. A place on the water where you can step away from the pace of the city and find presence in the middle of it all. The facility is designed as a modern houseboat with a panorama sauna, changing rooms and quiet lounges, plus a floating pool of clean, filtered harbour water. Here you move between heat and cold in a simple, sensory experience.",
     cta: "Book",
-    refshaleoen: "Sign-up Refshaleøen",
-    havnegade: "Sign-up Havnegade",
-    book: "Book Sauna Gus",
+    previous: "Previous",
+    next: "Next",
+    cards: {
+      refshaleoen: { tag: "Membership", title: "Sign-up Refshaleøen", body: "Join the membership lobby at Refshaleøen. It's free and without obligation.", cta: "Join the lobby" },
+      havnegade: { tag: "Opens 2027", title: "Sign-up Havnegade", body: "Pre-register without obligation and be the first to hear when membership at Havnegade opens.", cta: "Pre-register" },
+      book: { tag: "Open Gus", title: "Book Sauna Gus", body: "Open Gus is for everyone – no membership needed. A guided sauna gus with three rounds for 399 DKK.", cta: "Book" },
+      baf: { tag: "For members", title: "Bring a Friend", body: "As a member you can bring up to two friends – from 249 DKK per guest, bought in the app.", cta: "Read more" },
+      hire: { tag: "Private & Corporate", title: "Private Hire", body: "Host your event at Glaecier. Thursday evenings are the ideal time.", cta: "Read more" },
+    },
   },
   intro: {
     eyebrow: "Glaecier · Refshaleøen",
