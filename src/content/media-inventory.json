@@ -1080,5 +1080,18 @@
     "bytes": 144835,
     "hasExif": false,
     "hash": "1101110110110011011001101110011000001001100111011000111111000001"
+  },
+  "sauna-ovne-mod-havnen": {
+    "file": "Sauna ovne mod havnen.png",
+    "slug": "sauna-ovne-mod-havnen",
+    "src": "/media/sauna-ovne-mod-havnen.jpg",
+    "width": 525,
+    "height": 676,
+    "originalWidth": 525,
+    "originalHeight": 676,
+    "orientation": "portrait",
+    "bytes": 482704,
+    "hasExif": false,
+    "hash": "0001110100001101010011010000110101111011100110110001111000011000"
   }
 }

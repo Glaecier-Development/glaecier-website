@@ -43,7 +43,8 @@ function LanguageSwitch({ t, locale, page, className = "" }: { t: HeaderText; lo
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 // Photo beside the menu panel on wider screens (Villa Copenhagen-style split menu).
-const menuPhoto = `${base}/media/poolkant-ved-solnedgang-1080.webp`;
+// The sauna stoves facing the harbour (client, 2026-11-20). Only a 525×676 copy exists; a larger one would look sharper.
+const menuPhoto = `${base}/media/sauna-ovne-mod-havnen-1080.webp`;
 
 /** One row in the menu: an uppercase link with a hairline below; items with children get a +/- toggle. */
 function MenuRow({ item, href, base: home, close, newTab }: { item: NavItem; href: string; base: string; close: () => void; newTab: string }) {
