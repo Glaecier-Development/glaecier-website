@@ -6,7 +6,7 @@ import type { Dictionary } from "@/content/dictionaries";
 import { site } from "@/content/site";
 import { locales, type Locale } from "@/i18n/config";
 import { links, pages, type Page } from "@/content/links";
-import { ExternalAction, InternalAction } from "@/components/ui/buttons";
+import { InternalAction } from "@/components/ui/buttons";
 import { Wordmark } from "@/components/ui/Wordmark";
 
 type NavItem = Dictionary["nav"]["items"][number];
@@ -197,9 +197,6 @@ export function SiteHeader({ t, locale, page = "home" }: { t: HeaderText; locale
                 <InternalAction href={pages.book(locale)} variant="dark">
                   {t.nav.book}
                 </InternalAction>
-                <ExternalAction href={links.memberLogin} newTab={t.nav.newTab} variant="outline">
-                  {t.nav.login}
-                </ExternalAction>
               </div>
               {/* Contact, Villa-style: label left, value right. */}
               <dl className="space-y-3 border-t border-ink/15 pt-5 text-sm">

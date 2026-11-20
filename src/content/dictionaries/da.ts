@@ -25,7 +25,6 @@ export const da = {
     homeLabel: "Home",
     close: "Luk menu",
     book: "Book",
-    login: "Login",
     home: "Glaecier – forside",
     newTab: "(åbner i en ny fane)",
     // Pop-up with the live booking app, opened by every "Book" button.
@@ -385,15 +384,24 @@ export const da = {
     privacy: "Tilmeldingen foregår i Glaeciers officielle formular på glaecier.com, hvor du også accepterer vilkår og privatlivspolitik. Denne side gemmer ingen oplysninger.",
     gus: { heading: "Vil du opleve Glaecier uden at være medlem?", cta: "Book Open Gus" }, // VERIFIED
   },
+  // Footer, Villa Copenhagen-style without partner logos (client, 2026-11-20). English on both languages.
   footer: {
-    signup: "Bliv medlem",
-    contact: "Kontakt",
-    more: "Mere",
-    faq: "Ofte stillede spørgsmål",
-    book: "Book Open Gus",
-    login: "Medlemslogin",
+    tagline: "Sauna and community – in the heart of Copenhagen",
+    visit: "Visit",
+    city: "1432 Copenhagen",
+    directions: "Directions",
+    contact: "Contact",
     instagram: "Instagram",
-    disclaimer: "Prototype af ny hjemmeside – ikke den officielle glaecier.com.",
+    hours: "Members’ opening hours",
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    hoursNote: "Tuesday evenings are reserved for Open Gus.",
+    explore: "Explore",
+    signup: "Sign up for membership",
+    book: "Book Sauna Gus",
+    hire: "Rent Glaecier",
+    faq: "FAQ",
+    language: "Language",
+    disclaimer: "Prototype of a new website – not the official glaecier.com.",
   },
 };
 
