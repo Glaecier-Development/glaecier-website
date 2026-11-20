@@ -9,7 +9,7 @@
   --color-harbour: #233743;
   --color-mist: #cfd6d6;
   --color-fog: #b9b0a4; /* muted text on ink/harbour */
-  --color-glaecier-blue: #06038d; /* Pantone 2738 C (client, 2026-11-20); footer background */
+  --color-glaecier-blue: #08066a; /* Pantone 2738 C, darkened a little at the client's request (2026-11-20); footer background */
 
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
