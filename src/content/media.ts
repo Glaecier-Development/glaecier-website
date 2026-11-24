@@ -77,7 +77,8 @@ export const media = {
   // Gift cards: the banner above every footer, and the /gift-card/ page.
   giftCard: {
     banner: m("dsc07838", "Spanden med vand ved saunaens varme sten", "The water bucket by the sauna's hot stones", "50% 45%"),
-    hero: m("dsc07850", "Panorama-saunaen med træbænke, sten og vinduer mod havnen", "The panorama sauna with timber benches, stones and windows to the harbour", "50% 55%"),
+    // Client's choice (2026-11-24). Only a 295×361 copy exists; a larger original would look much sharper full-screen.
+    hero: m("community-glaecier", "En gæst hviler armene på poolkanten med lukkede øjne i aftenlys", "A guest resting on the pool edge with closed eyes in evening light", "50% 35%"),
     tuesday: m("pool-ved-solnedgang", "Gæster i poolen ved solnedgang, med trædæk, liggestole og skibene ved Holmen bag vandet", "Guests in the pool at sunset, with the timber deck, loungers and the ships at Holmen across the water", "50% 60%"),
   },
   // Photos for the Happenings cards (see happenings.ts).
