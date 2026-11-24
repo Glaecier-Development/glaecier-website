@@ -74,6 +74,11 @@ export const media = {
       [events.yogaMats, events.glasses],
     ],
   },
+  // Photos for the Happenings cards (see happenings.ts).
+  happenings: {
+    gus: m("dsc07649", "En gusmester gør klar i saunaen med et håndklæde", "A gusmaster preparing in the sauna with a towel", "58% 40%"),
+    harbour: m("dsc07593", "En gæst i saunaen ser ud over havnen", "A guest in the sauna looking out over the harbour", "50% 40%"),
+  },
   // A quiet human moment straight after the hero: a guest by the window, seen through glass and reflections.
   intro: m(
     "solnedgang-over-havnen",
