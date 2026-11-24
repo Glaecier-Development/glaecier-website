@@ -69,6 +69,21 @@ export const en: Dictionary = {
       hire: { tag: "Private & Corporate", title: "Private Hire", body: "Host your event at Glaecier. Thursday evenings are the ideal time.", cta: "Read more" },
     },
   },
+  // Happenings section on the homepage (client, 2026-11-24). English on both languages. The events are in happenings.ts.
+  happenings: {
+    eyebrow: "Happenings",
+    heading: "Upcoming at Glaecier",
+    lead: "Guided gus, rituals and gatherings on the water. Book your spot by email and we’ll confirm it.",
+    label: "Upcoming events",
+    previous: "Previous",
+    next: "Next",
+    readMore: "Read more",
+    book: "Book by email",
+    soldOut: "Sold out",
+    nextOne: "Hear about the next one",
+    interest: "Register interest by email",
+    emailNote: "Opens an email to community@glaecier.com",
+  },
   intro: {
     eyebrow: "Glaecier · Refshaleøen",
     statement: "Heat, cold and the harbour – in the middle of Copenhagen.",

@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Facilities } from "@/components/sections/Facilities";
+import { Happenings } from "@/components/sections/Happenings";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Locations } from "@/components/sections/Locations";
@@ -25,6 +26,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Quicklinks {...props} />
         <Intro {...props} />
         <Facilities {...props} />
+        <Happenings {...props} />
         <Membership {...props} />
         <Locations {...props} />
         <PrivateHire {...props} />
