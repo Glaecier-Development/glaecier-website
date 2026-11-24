@@ -44,9 +44,7 @@ export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
         <div className="flex flex-1 flex-col pt-6 md:pt-8">
           <h3 className="font-serif text-3xl leading-tight font-light">{c.title}</h3>
           <p className="mt-4 leading-relaxed text-stone">{c.body}</p>
-          <span className="link-underline mt-auto self-start pt-8 text-[0.75rem] font-medium tracking-[0.16em] uppercase">
-            {c.cta} <span aria-hidden="true">{external ? "↗" : "→"}</span>
-          </span>
+          {/* No "Read more" line: the whole card is the link (client, 2026-11-24). */}
           {external && <span className="sr-only"> {t.nav.newTab}</span>}
         </div>
       </>
