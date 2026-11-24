@@ -186,6 +186,8 @@ export const en: Dictionary = {
       status: "Upcoming · expected to open early 2027 – to be confirmed",
       body: "Directly on the water in the heart of Copenhagen. Address and opening date to be confirmed.",
     },
+    // Short lines under the photo tiles (client, 2026-11-24). VERIFIED: address and "i starten af 2027" on glaecier.com.
+    tiles: { refshaleoen: "Refshalevej 143", havnegade: "Opening early 2027" },
     hoursLink: "Opening hours",
     hoursLabel: "Members’ opening hours",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
