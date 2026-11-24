@@ -54,7 +54,7 @@ export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
   };
 
   return (
-    <section aria-labelledby="welcome-title" className="pt-20 md:pt-28">
+    <section aria-labelledby="welcome-title" className="pt-20 pb-24 md:pt-28 md:pb-36">
       {/* Welcome: name, one line, one paragraph and the booking button, then the cards. */}
       <div className="container-page mb-10 md:mb-14">
         {/* The heading is the wordmark itself, as in the site header; the name stays in the text for screen readers. */}
