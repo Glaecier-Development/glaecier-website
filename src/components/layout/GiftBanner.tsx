@@ -3,33 +3,29 @@ import type { Dictionary } from "@/content/dictionaries";
 import { pages } from "@/content/links";
 import { media } from "@/content/media";
 import type { Locale } from "@/i18n/config";
+import { buttonClass } from "@/components/ui/buttons";
 import { Photo } from "@/components/ui/Photo";
 
-/** One box above the footer on every page: "Buy a warm gift" over a photo, the whole box linking to the gift card page. */
+/**
+ * Gift card, Villa Copenhagen-style: a wide photo with a solid harbour-blue panel overlapping it on the left, holding
+ * the title, one line and the button. The photo starts at 30% so the guest's face stays clear of the panel. Shown above the footer on every page except the gift card page, with generous space around.
+ */
 export function GiftBanner({ t, locale }: { t: Dictionary; locale: Locale }) {
   const b = t.giftCard.banner;
   return (
-    <aside aria-label={b.label} className="bg-paper px-2 py-2 sm:px-3 sm:py-3">
-      <Link
-        prefetch={false}
-        href={pages.giftCard(locale)}
-        className="group relative isolate flex min-h-[16rem] items-center justify-center overflow-hidden text-paper focus-visible:outline-offset-[-4px] focus-visible:outline-paper md:min-h-[22rem]"
-      >
-        <Photo
-          item={media.giftCard.banner}
-          locale={locale}
-          sizes="100vw"
-          className="absolute! inset-0 -z-10"
-          imgClassName="transition-[scale] duration-[1.2s] ease-calm group-hover:scale-[1.03] motion-reduce:group-hover:scale-100"
-        />
-        <span aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/45 transition-colors duration-500 group-hover:bg-ink/35" />
-        <span className="flex items-center gap-4 font-serif text-4xl font-light md:text-6xl">
-          {b.heading}
-          <span aria-hidden="true" className="text-2xl transition-[translate] duration-500 ease-calm group-hover:translate-x-1.5 md:text-3xl">
-            →
-          </span>
-        </span>
-      </Link>
+    <aside aria-labelledby="gift-banner-title" className="bg-paper py-24 md:py-36">
+      <div className="relative isolate md:min-h-[34rem]">
+        <Photo item={media.giftCard.banner} locale={locale} sizes="100vw" className="aspect-[4/3] md:absolute! md:inset-y-0 md:right-0 md:left-[30%] md:-z-10 md:aspect-auto" />
+        <div className="bg-harbour px-6 py-12 text-paper md:absolute md:inset-y-0 md:left-[8%] md:flex md:w-[min(38rem,44%)] md:flex-col md:justify-center md:px-12 lg:px-16">
+          <h2 id="gift-banner-title" className="font-serif text-5xl leading-[1] font-light tracking-[-0.01em] uppercase md:text-7xl">
+            {b.heading}
+          </h2>
+          <p className="mt-6 max-w-sm text-lg leading-relaxed text-paper/85">{b.body}</p>
+          <Link prefetch={false} href={pages.giftCard(locale)} className={buttonClass("outline", "mt-9 self-start max-sm:w-full")}>
+            {b.cta}
+          </Link>
+        </div>
+      </div>
     </aside>
   );
 }
