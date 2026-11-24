@@ -7,7 +7,6 @@ import { Happenings } from "@/components/sections/Happenings";
 import { Hero } from "@/components/sections/Hero";
 import { Locations } from "@/components/sections/Locations";
 import { Membership } from "@/components/sections/Membership";
-import { Philosophy } from "@/components/sections/Philosophy";
 import { PrivateHire } from "@/components/sections/PrivateHire";
 import { Quicklinks } from "@/components/sections/Quicklinks";
 
@@ -28,7 +27,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Membership {...props} />
         <Locations {...props} />
         <PrivateHire {...props} />
-        <Philosophy {...props} />
       </main>
       <SiteFooter {...props} />
     </>
