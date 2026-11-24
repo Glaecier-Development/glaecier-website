@@ -1093,5 +1093,18 @@
     "bytes": 482704,
     "hasExif": false,
     "hash": "0001110100001101010011010000110101111011100110110001111000011000"
+  },
+  "pool-med-havnen-og-holmen": {
+    "file": "Pool med havnen og Holmen.jpg",
+    "slug": "pool-med-havnen-og-holmen",
+    "src": "/media/pool-med-havnen-og-holmen.jpg",
+    "width": 2000,
+    "height": 1333,
+    "originalWidth": 2000,
+    "originalHeight": 1333,
+    "orientation": "landscape",
+    "bytes": 385899,
+    "hasExif": false,
+    "hash": "0001111100111011011001110100100101001000110101000000011100000011"
   }
 }

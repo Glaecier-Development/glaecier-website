@@ -121,7 +121,8 @@ export const media = {
   // All supplied photos, including those showing people, are approved for publication (client, 2026-10-30).
   // Changing a slug here also means updating the public/media allow-list in .gitignore (`npm run check:export` catches misses).
   facilities: {
-    sauna: m("dsc07850", "Panorama-saunaen med træbænke, sten og vinduer mod havnen", "The panorama sauna with timber benches, stones and windows to the harbour", "50% 55%"),
+    // "The place" photo (client, 2026-11-24).
+    sauna: m("pool-med-havnen-og-holmen", "Poolen på dækket med pergola, liggestole og Holmen med det gamle krigsskib bag vandet", "The pool on the deck with pergola, loungers and Holmen with the old warship across the water", "50% 70%"),
     pool: m("dsc07890", "Poolen med trappe og gelænder under dækkets pergola", "The pool with steps and handrail beneath the deck pergola", "50% 75%"),
     // The pool's mosaic edge at sunset, set against the daytime pool frame (client, 2026-11-06).
     detail: m(
