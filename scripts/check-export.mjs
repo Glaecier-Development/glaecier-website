@@ -5,7 +5,7 @@ import path from "node:path";
 
 const out = path.resolve("out");
 const base = process.env.PAGES_BASE_PATH ?? "";
-const pages = ["index.html", "da/index.html", ...["en"].flatMap((l) => ["", "book/", "signup/", "gift-card/"].map((p) => `${l}/${p}index.html`))];
+const pages = ["index.html", "da/index.html", ...["en"].flatMap((l) => ["", "book/", "signup/", "gift-card/", "about/"].map((p) => `${l}/${p}index.html`))];
 // Links to the site's own pages must resolve to an exported index.html.
 const pageLink = new RegExp(`href="${base}/((?:da|en)/[^"#?]*)`, "g");
 const ref = new RegExp(`${base}/((?:media|brand|_next)/[^"'\\s,)?\\\\]+)`, "g");

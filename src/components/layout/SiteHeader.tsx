@@ -15,7 +15,7 @@ export type HeaderText = Pick<Dictionary, "nav" | "prototype">;
 
 /** Where a nav item points: Membership has its own page, Book opens the booking pop-up; the rest are homepage sections. */
 const itemHref = (id: string, locale: Locale, page: Page) =>
-  id === "membership" ? pages.signup(locale) : id === "book" ? pages.book(locale) : page === "home" ? `#${id}` : `${pages.home(locale)}#${id}`;
+  id === "membership" ? pages.signup(locale) : id === "book" ? pages.book(locale) : id === "about" ? pages.about(locale) : page === "home" ? `#${id}` : `${pages.home(locale)}#${id}`;
 
 /** Sub-items that leave the site: the official sign-up forms (opened in a new tab, as everywhere else). */
 const externalChild: Record<string, string> = { refshaleoen: links.signupRefshaleoen, havnegade: links.signupHavnegade };

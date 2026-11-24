@@ -51,6 +51,7 @@ export const da = {
           { id: "brand-activations", label: "Brand Activations" },
         ],
       },
+      { id: "about", label: "About", children: [] },
     ],
     // No phone number is published on glaecier.com (checked 2026-11-20), so the menu shows address, email and Instagram.
     contact: { address: "Address", city: "1432 Copenhagen", email: "Email", instagram: "Instagram" },
@@ -399,6 +400,47 @@ export const da = {
     privacy: "Tilmeldingen foregår i Glaeciers officielle formular på glaecier.com, hvor du også accepterer vilkår og privatlivspolitik. Denne side gemmer ingen oplysninger.",
     gus: { heading: "Vil du opleve Glaecier uden at være medlem?", cta: "Book Open Gus" }, // VERIFIED
   },
+  // About page (/about/), built like Villa Copenhagen's About page with Glaecier's own facts (client, 2026-11-24). English on
+  // both languages. VERIFIED against glaecier.com on 2026-11-24 (homepage: concept, "ro, sundhed og fællesskab",
+  // "Fællesskab & inklusion", "Historiske københavn", "Hensyn til naboer", Havnegade early 2027); phrasing condensed.
+  about: {
+    meta: {
+      title: "About – Glaecier",
+      description: "A floating sauna community in Copenhagen, where calm, health and community meet all year round – in a bathing tradition more than 250 years old.",
+    },
+    eyebrow: "About",
+    title: "A floating sauna community",
+    intro: {
+      heading: "A place on the water",
+      body: "Glaecier is a floating sauna community in Copenhagen, where calm, health and community meet all year round. It is designed as a modern houseboat with a panorama sauna, changing rooms and quiet lounges, plus a floating pool of clean, filtered harbour water. Glaecier started on Refshaleøen, at the end of the pier on Refshalevej 143 – and opens in Havnegade, in the heart of Copenhagen, in early 2027.",
+      cta: "Book Open Gus",
+    },
+    values: {
+      heading: "Our values",
+      lead: "Calm sauna experiences on the water in Copenhagen – with a focus on wellbeing, health and community.",
+      items: [
+        { title: "Calm", body: "Glaecier is a quiet place, focused on calm and presence. A place on the water where you can step away from the pace of the city and find presence in the middle of it all." },
+        { title: "Health", body: "Here you move between heat and cold in a simple, sensory experience: the panorama sauna, then a dip in the floating pool – a safe and natural transition from heat to cold." },
+        { title: "Community", body: "People meet across age, background and life situation – to be together or on their own. There is room for everyone." },
+      ],
+    },
+    history: {
+      heading: "A bathing tradition more than 250 years old",
+      body: "Copenhagen has had bathing houses along the harbour for more than 250 years – from the first wooden bathhouses at Langebro and Rysensteen to the later public baths. Glaecier builds on that tradition in a contemporary way.",
+    },
+    experience: {
+      heading: "Heat, cold and the harbour",
+      body: "The panorama sauna opens onto the harbour, and outside lies the floating pool. In a guided gus, aromatic steam with essential oils fills the sauna over three rounds, each followed by a dip in the pool. Open Gus is for everyone – no membership needed.",
+      cta: "Book Open Gus",
+    },
+    community: {
+      heading: "Community & inclusion",
+      body: "Glaecier is a community where people meet across age, background and life situation. We work actively to make the experience accessible to more people through collaborations with NGOs and minority groups. And we are good neighbours: Glaecier is a quiet place, developed in dialogue with the people around us – there are no parties or noisy events.",
+      quote: "You meet people in a different way here – the sauna creates a quiet, shared experience that makes it easy just to be.",
+      quoteBy: "Sofie, member",
+      cta: "Sign up for membership",
+    },
+  },
   // Gift cards (client, 2026-11-24): banner above the footer on every page and the /gift-card/ page. English on both
   // languages. Open Gus price VERIFIED (glaecier.com: 399 kr; Tuesday evenings and Saturdays on /gus). glaecier.com sells
   // no gift cards online, so they are ordered by email to community@glaecier.com. Client (2026-11-24): any number of
@@ -442,6 +484,7 @@ export const da = {
     book: "Book Sauna Gus",
     hire: "Rent Glaecier",
     giftCards: "Gift cards",
+    about: "About",
     faq: "FAQ",
     language: "Language",
     disclaimer: "Prototype of a new website – not the official glaecier.com.",

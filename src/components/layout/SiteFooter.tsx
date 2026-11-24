@@ -93,6 +93,11 @@ export function SiteFooter({ t, locale, page = "home" }: { t: Dictionary; locale
                   </Link>
                 </li>
                 <li>
+                  <Link prefetch={false} href={pages.about(locale)} className={link}>
+                    {f.about}
+                  </Link>
+                </li>
+                <li>
                   <Link prefetch={false} href={pages.giftCard(locale)} className={link}>
                     {f.giftCards}
                   </Link>

@@ -74,6 +74,31 @@ export const media = {
       [events.yogaMats, events.glasses],
     ],
   },
+  // About page (/about/).
+  about: {
+    hero: m("dsc07485", "Trædækket, poolen og pergolaen på Refshaleøen ud mod havnen", "The timber deck, pool and pergola at Refshaleøen facing the harbour", "50% 62%"),
+    intro: [
+      m("dsc07850", "Panorama-saunaen med træbænke, sten og vinduer mod havnen", "The panorama sauna with timber benches, stones and windows to the harbour", "50% 55%"),
+      m("dsc08126", "En gæst med saunahat ser ud over havnen og en gul havnebus", "A guest in a sauna hat looking out over the harbour and a yellow harbour bus", "60% 50%"),
+    ],
+    values: [
+      m("dsc08088", "En gæst hviler mellem runderne", "A guest resting between rounds", "56% 50%"),
+      m("dsc07890", "Poolen med trappe og gelænder under dækkets pergola", "The pool with steps and handrail beneath the deck pergola", "50% 75%"),
+      m("dsc08152", "Gæster i saunaen, set gennem grønne blade", "Guests in the sauna, seen through green leaves", "55% 50%"),
+    ],
+    history: m(
+      "historisk-havn",
+      "Historisk sort-hvid foto af havnen med badehus, robåde, en træbro og sejlskibe ved kajen",
+      "Historic black-and-white photo of the harbour with a bathhouse, rowing boats, a timber bridge and sailing ships at the quay",
+      "50% 40%",
+    ),
+    experience: [
+      m("poolkant-ved-solnedgang", "Poolens kant af blå mosaikfliser ved solnedgang", "The pool's blue mosaic edge at sunset", "50% 50%"),
+      m("dsc07838", "Spanden med vand ved saunaens varme sten", "The water bucket by the sauna's hot stones", "50% 45%"),
+      m("solnedgang-over-havnen", "Solnedgang over havnen, set fra det våde trædæk", "Sunset over the harbour, seen from the wet timber deck", "50% 50%"),
+    ],
+    community: m("event-gaester-i-haandklaeder", "Gæster i stribede håndklæder hviler på trædækket mellem saunarunderne", "Guests in striped towels resting on the deck between sauna rounds", "50% 50%"),
+  },
   // Gift cards: the banner above every footer, and the /gift-card/ page.
   giftCard: {
     // Same photo as the gift card page (client, 2026-11-24); only a 295×361 copy exists.
