@@ -340,6 +340,39 @@ export const en: Dictionary = {
     privacy: "You sign up in Glaecier's official form on glaecier.com, where you also accept the terms and privacy policy. This page stores no information.",
     gus: { heading: "Want to experience Glaecier without being a member?", cta: "Book Open Gus" },
   },
+  // Gift cards (client, 2026-11-24): banner above the footer on every page and the /gift-card/ page. English on both
+  // languages. Open Gus price VERIFIED (glaecier.com: 399 kr; Tuesday evenings and Saturdays on /gus). glaecier.com sells
+  // no gift cards online, so they are ordered by email to community@glaecier.com.
+  giftCard: {
+    meta: {
+      title: "Gift cards – Glaecier",
+      description: "Give a warm gift: an Open Gus at Glaecier, a guided sauna gus on the water in Copenhagen. 399 DKK.",
+    },
+    banner: {
+      eyebrow: "Gift cards",
+      heading: "Buy a warm gift",
+      body: "Give someone an Open Gus – a guided sauna gus on the water in Copenhagen.",
+      cta: "Buy a warm gift",
+    },
+    eyebrow: "Gift cards",
+    title: "Give a warm gift",
+    intro: "An Open Gus at Glaecier: a guided sauna gus with three rounds on the water in Copenhagen – no membership needed.",
+    primary: "See gift cards",
+    productsHeading: "Choose a gift card",
+    products: {
+      tuesday: { tag: "Tuesday", title: "Open Gus – Tuesday evening", body: "A guided sauna gus with three rounds on one of our Tuesday evening sessions.", price: "399 DKK" },
+      saturday: { tag: "Saturday", title: "Open Gus – Saturday", body: "A guided sauna gus with three rounds on one of our Saturday sessions.", price: "399 DKK" },
+    },
+    buy: "Buy by email",
+    emailNote: "Opens an email to community@glaecier.com",
+    howHeading: "How it works",
+    steps: [
+      { title: "Choose and write", body: "Pick a gift card and send us an email – it opens with the gift card filled in." },
+      { title: "We get back to you", body: "We reply with how to pay and how you receive the gift card." },
+      { title: "Enjoy the heat", body: "The recipient joins an Open Gus on the day the gift card is for." },
+    ],
+    note: "Questions about gift cards? Write to community@glaecier.com.",
+  },
   // Footer, Villa Copenhagen-style without partner logos (client, 2026-11-20). English on both languages.
   footer: {
     tagline: "Sauna and community – in the heart of Copenhagen",
@@ -355,6 +388,7 @@ export const en: Dictionary = {
     signup: "Sign up for membership",
     book: "Book Sauna Gus",
     hire: "Rent Glaecier",
+    giftCards: "Gift cards",
     faq: "FAQ",
     language: "Language",
     disclaimer: "Prototype of a new website – not the official glaecier.com.",
