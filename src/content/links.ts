@@ -27,5 +27,6 @@ export const pages = {
   home: (l: Locale) => `/${l}/`,
   book: (l: Locale) => `/${l}/book/`,
   signup: (l: Locale) => `/${l}/signup/`,
+  giftCard: (l: Locale) => `/${l}/gift-card/`,
 };
-export type Page = "home" | "book" | "signup";
+export type Page = "home" | "book" | "signup" | "giftCard";

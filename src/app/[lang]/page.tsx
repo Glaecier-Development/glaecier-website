@@ -5,7 +5,6 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Facilities } from "@/components/sections/Facilities";
 import { Happenings } from "@/components/sections/Happenings";
 import { Hero } from "@/components/sections/Hero";
-import { Intro } from "@/components/sections/Intro";
 import { Locations } from "@/components/sections/Locations";
 import { Membership } from "@/components/sections/Membership";
 import { Philosophy } from "@/components/sections/Philosophy";
@@ -24,7 +23,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <main id="main">
         <Hero {...props} />
         <Quicklinks {...props} />
-        <Intro {...props} />
         <Facilities {...props} />
         <Happenings {...props} />
         <Membership {...props} />
