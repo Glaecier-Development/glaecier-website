@@ -408,7 +408,7 @@ export const da = {
       title: "Gift cards – Glaecier",
       description: "Give a warm gift: an Open Gus at Glaecier, a guided sauna gus on the water in Copenhagen. 399 DKK.",
     },
-    banner: { heading: "Buy a warm gift", label: "Gift cards" },
+    banner: { heading: "Gift card", body: "Buy someone a warm gift – Open Gus tickets for Tuesdays or Saturdays.", cta: "Buy a warm gift", label: "Gift cards" },
     title: "Buy someone a warm gift",
     lead: "A thoughtful moment of heat on the water in Copenhagen.",
     product: {
