@@ -409,10 +409,8 @@ export const da = {
       description: "Give a warm gift: an Open Gus at Glaecier, a guided sauna gus on the water in Copenhagen. 399 DKK.",
     },
     banner: { heading: "Buy a warm gift", label: "Gift cards" },
-    eyebrow: "Gift cards",
-    title: "Give a warm gift",
-    intro: "Tickets for Open Gus at Glaecier – a guided sauna gus with three rounds on the water in Copenhagen. No membership needed.",
-    primary: "Buy tickets",
+    title: "Buy someone a warm gift",
+    lead: "A thoughtful moment of heat on the water in Copenhagen.",
     product: {
       tag: "Open Gus",
       title: "Open Gus gift tickets",
@@ -427,13 +425,6 @@ export const da = {
     },
     buy: "Buy tickets by email",
     emailNote: "Opens an email to community@glaecier.com",
-    howHeading: "How it works",
-    steps: [
-      { title: "Tell us how many", body: "Send us an email with the number of tickets you would like – it opens with the gift card filled in." },
-      { title: "We get back to you", body: "We reply with how to pay and how you receive the tickets." },
-      { title: "Enjoy the heat", body: "Each ticket is used on its own, for an Open Gus on a Tuesday or a Saturday." },
-    ],
-    note: "Questions about gift cards? Write to community@glaecier.com.",
   },
   // Footer, Villa Copenhagen-style without partner logos (client, 2026-11-20). English on both languages.
   footer: {

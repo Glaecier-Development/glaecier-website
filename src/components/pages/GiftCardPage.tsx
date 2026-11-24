@@ -3,7 +3,6 @@ import { media } from "@/content/media";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/config";
 import { buttonClass } from "@/components/ui/buttons";
-import { PageHero } from "@/components/ui/PageHero";
 import { Photo } from "@/components/ui/Photo";
 
 type Props = { t: Dictionary; locale: Locale };
@@ -15,76 +14,56 @@ const orderMail = (title: string, price: string) =>
   )}`;
 
 /**
- * Gift cards, in the spirit of Villa Copenhagen's gift card page: a full-screen hero, one gift card – Open Gus tickets,
- * any number, each used on its own, for Tuesdays or Saturdays – and how it works. glaecier.com sells no gift cards
- * online, so buying is an email to the community inbox; no payment or personal data is handled here.
+ * Gift cards, kept minimal in the spirit of Villa Copenhagen's gift card page: one photo with the title centred on it,
+ * then the gift – Open Gus tickets, any number, each used on its own, for Tuesdays or Saturdays – with its price and
+ * one way to buy. glaecier.com sells no gift cards online, so buying is an email to the community inbox; no payment
+ * or personal data is handled here.
  */
 export function GiftCardPage({ t, locale }: Props) {
   const g = t.giftCard;
   const p = g.product;
   return (
     <>
-      <PageHero item={media.giftCard.hero} locale={locale} eyebrow={g.eyebrow} title={g.title} intro={g.intro}>
-        <a href="#gift-card" className={buttonClass("solid", "max-sm:w-full")}>
-          {g.primary}
-        </a>
-      </PageHero>
+      {/* data-hero: the header stays transparent over the photo, as on the other pages. */}
+      <section data-hero aria-labelledby="page-title" className="relative isolate flex h-svh min-h-[34rem] items-center justify-center overflow-hidden bg-ink px-6 text-center text-paper">
+        <Photo item={media.giftCard.hero} locale={locale} sizes="100vw" priority className="absolute! inset-0 -z-20" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/45" />
+        <h1 id="page-title" className="max-w-5xl font-serif text-5xl leading-[1.02] font-light tracking-[-0.015em] text-balance uppercase [text-shadow:0_1px_24px_rgb(0_0_0/0.3)] sm:text-7xl md:text-8xl">
+          {g.title}
+        </h1>
+      </section>
 
-      <section id="gift-card" aria-labelledby="gift-card-title" className="scroll-mt-24 bg-paper py-24 md:py-36">
-        <div className="container-page">
-          <article className="grid bg-ink text-paper lg:grid-cols-2">
-            <div className="relative">
-              <Photo item={media.giftCard.tuesday} locale={locale} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/3] lg:h-full" />
-              <p className="eyebrow absolute top-4 left-4 bg-wood/90 px-3 py-1.5 text-[0.6875rem] text-paper">{p.tag}</p>
-            </div>
-            <div className="flex flex-col p-6 sm:p-10 xl:p-14">
-              <h2 id="gift-card-title" className="font-serif text-4xl leading-[1.05] font-light md:text-5xl">
-                {p.title}
-              </h2>
-              <p className="mt-5 max-w-lg text-lg leading-relaxed text-paper/75">{p.body}</p>
-              <ul className="mt-8 border-t border-paper/15">
+      <section aria-labelledby="gift-card-title" className="bg-paper py-24 md:py-36">
+        <div className="container-page grid gap-y-14 lg:grid-cols-12 lg:gap-x-10">
+          <div className="lg:col-span-5">
+            <h2 id="gift-card-title" className="font-serif text-4xl leading-[1.05] font-light md:text-6xl">
+              {p.title}
+            </h2>
+            <p className="mt-6 font-serif text-2xl leading-snug font-light text-stone md:text-3xl">{g.lead}</p>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-stone">{p.body}</p>
+          </div>
+
+          <article aria-label={p.title} className="bg-ink text-paper lg:col-span-6 lg:col-start-7">
+            <Photo item={media.giftCard.tuesday} locale={locale} sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10]" />
+            <div className="p-6 sm:p-10">
+              <ul className="border-t border-paper/15">
                 {p.points.map((point) => (
-                  <li key={point} className="flex gap-4 border-b border-paper/15 py-3 leading-relaxed">
-                    <span aria-hidden="true" className="text-wood">
-                      —
-                    </span>
+                  <li key={point} className="border-b border-paper/15 py-3 leading-relaxed">
                     {point}
                   </li>
                 ))}
               </ul>
-              <p className="mt-8 font-serif text-4xl font-light">
-                {p.price} <span className="text-base text-paper/60">{p.per}</span>
-              </p>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-6">
+                <p className="font-serif text-4xl font-light">
+                  {p.price} <span className="text-base text-paper/60">{p.per}</span>
+                </p>
                 <a href={orderMail(p.title, p.price)} className={buttonClass("solid", "max-sm:w-full")}>
                   {g.buy}
                 </a>
-                <p className="mt-3 text-xs text-paper/55">{g.emailNote}</p>
               </div>
+              <p className="mt-4 text-xs text-paper/55">{g.emailNote}</p>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section aria-labelledby="gift-how-title" className="bg-sand/60 py-24 md:py-32">
-        <div className="container-page grid gap-y-12 lg:grid-cols-12 lg:gap-x-10">
-          <h2 id="gift-how-title" className="reveal font-serif text-4xl leading-[1.05] font-light md:text-6xl lg:col-span-4">
-            {g.howHeading}
-          </h2>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <ol className="border-t border-ink/15">
-              {g.steps.map((step, i) => (
-                <li key={step.title} className="reveal grid grid-cols-[2.75rem_1fr] border-b border-ink/15 py-6">
-                  <span className="eyebrow pt-1 text-wood">0{i + 1}</span>
-                  <div>
-                    <p className="font-serif text-2xl font-light">{step.title}</p>
-                    <p className="mt-2 max-w-md text-sm leading-relaxed text-stone">{step.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-8 text-sm text-stone">{g.note}</p>
-          </div>
         </div>
       </section>
     </>
