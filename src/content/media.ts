@@ -168,7 +168,8 @@ export const media = {
     ),
   },
   hire: {
-    main: m("dsc07799", "Varme pendellamper i loungen", "Warm pendant lamps in the lounge", "50% 40%"),
+    // The sauna at a brand event (client, 2026-11-24). Only a 628×805 copy exists, so it is soft at full screen.
+    main: m("event-samsung-sauna", "Saunaen ved et brand-arrangement med logo på ruden og havnen bagved", "The sauna at a brand event with a logo on the window and the harbour beyond", "45% 45%"),
     // A brand morning on the deck: guests between rounds, then the event's welcome sign.
     guests: m("event-gaester-i-haandklaeder", "Gæster i stribede håndklæder hviler på trædækket mellem saunarunderne", "Guests in striped towels resting on the deck between sauna rounds"),
     event: m("event-velkomst-paa-daekket", "Velkomstskilt til et brand-arrangement på dækket, med produkter og håndklæder på podier", "Welcome sign for a brand event on the deck, with products and towels on plinths"),
