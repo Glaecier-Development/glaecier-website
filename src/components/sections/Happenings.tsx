@@ -32,6 +32,7 @@ export function Happenings({ t, locale }: { t: Dictionary; locale: Locale }) {
           {h.heading}
         </h2>
         <p className="reveal mt-6 max-w-2xl font-serif text-2xl leading-snug font-light text-stone md:text-3xl">{h.lead}</p>
+        <p className="reveal mt-5 max-w-2xl text-lg leading-relaxed text-stone">{h.note}</p>
       </div>
 
       <CardRail label={h.label} previous={h.previous} next={h.next}>
