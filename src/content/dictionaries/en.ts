@@ -74,6 +74,7 @@ export const en: Dictionary = {
     eyebrow: "Happenings",
     heading: "Upcoming at Glaecier",
     lead: "Guided gus, rituals and gatherings on the water. Book your spot by email and we’ll confirm it.",
+    note: "Here you’ll find all our upcoming events – sign up before they’re fully booked.",
     label: "Upcoming events",
     previous: "Previous",
     next: "Next",
