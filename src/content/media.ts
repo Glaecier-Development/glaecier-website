@@ -79,7 +79,6 @@ export const media = {
     banner: m("dsc07838", "Spanden med vand ved saunaens varme sten", "The water bucket by the sauna's hot stones", "50% 45%"),
     hero: m("dsc07850", "Panorama-saunaen med træbænke, sten og vinduer mod havnen", "The panorama sauna with timber benches, stones and windows to the harbour", "50% 55%"),
     tuesday: m("pool-ved-solnedgang", "Gæster i poolen ved solnedgang, med trædæk, liggestole og skibene ved Holmen bag vandet", "Guests in the pool at sunset, with the timber deck, loungers and the ships at Holmen across the water", "50% 60%"),
-    saturday: m("dsc07898", "Trappen ned i den flydende pool under pergolaen", "The steps down into the floating pool beneath the pergola", "45% 70%"),
   },
   // Photos for the Happenings cards (see happenings.ts).
   happenings: {
