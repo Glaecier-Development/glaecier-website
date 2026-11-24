@@ -224,6 +224,8 @@ export const da = {
       // VERIFIED (site) but launch details pending.
       body: "Direkte på vandet i hjertet af København. Adresse og åbningsdato bekræftes senere.",
     },
+    // Short lines under the photo tiles (client, 2026-11-24). VERIFIED: address and "i starten af 2027" on glaecier.com.
+    tiles: { refshaleoen: "Refshalevej 143", havnegade: "Opening early 2027" },
     hoursLink: "Åbningstider",
     hoursLabel: "Åbningstider for medlemmer",
     days: ["Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"],
