@@ -101,10 +101,9 @@ export const media = {
   },
   // Gift cards: the banner above every footer, and the /gift-card/ page.
   giftCard: {
-    // Same photo as the gift card page (client, 2026-11-24); only a 295×361 copy exists.
-    banner: m("community-glaecier", "En gæst hviler ved poolkanten med lukkede øjne i aftenlys", "A guest resting on the pool edge with closed eyes in evening light", "50% 35%"),
-    // Client's choice (2026-11-24). Only a 295×361 copy exists; a larger original would look much sharper full-screen.
-    hero: m("community-glaecier", "En gæst hviler armene på poolkanten med lukkede øjne i aftenlys", "A guest resting on the pool edge with closed eyes in evening light", "50% 35%"),
+    // Sharp 2560 px photo (client, 2026-11-24: the 295 px pool-edge photo was too soft full-screen).
+    banner: m("dsc08126", "En gæst med saunahat ser ud over havnen og en gul havnebus", "A guest in a sauna hat looking out over the harbour and a yellow harbour bus", "60% 50%"),
+    hero: m("dsc08126", "En gæst med saunahat ser ud over havnen og en gul havnebus", "A guest in a sauna hat looking out over the harbour and a yellow harbour bus", "60% 45%"),
     tuesday: m("pool-ved-solnedgang", "Gæster i poolen ved solnedgang, med trædæk, liggestole og skibene ved Holmen bag vandet", "Guests in the pool at sunset, with the timber deck, loungers and the ships at Holmen across the water", "50% 60%"),
   },
   // Photos for the Happenings cards (see happenings.ts).
