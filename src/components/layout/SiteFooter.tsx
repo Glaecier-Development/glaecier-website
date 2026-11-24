@@ -135,7 +135,15 @@ export function SiteFooter({ t, locale, page = "home" }: { t: Dictionary; locale
                 ))}
               </ul>
             )}
-            <p>{f.disclaimer}</p>
+            <p>
+              <Link prefetch={false} href={pages.cookies(locale)} className="link-underline py-1">
+                {f.cookies}
+              </Link>
+              <span aria-hidden="true" className="mx-3 opacity-50">
+                ·
+              </span>
+              {f.disclaimer}
+            </p>
           </div>
         </div>
       </footer>

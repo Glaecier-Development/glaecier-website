@@ -41,6 +41,19 @@ export function SignupPage({ t, locale }: Props) {
         </a>
       </PageHero>
 
+      {/* What membership gives, centred like Soho House's membership statement. */}
+      <section aria-labelledby="membership-perks" className="bg-sand/60 py-24 text-center md:py-32">
+        <div className="container-page flex flex-col items-center">
+          <h2 id="membership-perks" className="reveal font-serif text-5xl leading-[1.02] font-light tracking-[-0.015em] md:text-7xl">
+            {s.perks.heading}
+          </h2>
+          <p className="reveal mt-8 max-w-2xl text-lg leading-relaxed text-ink md:text-xl">{s.perks.body}</p>
+          <ExternalAction href={links.signupRefshaleoen} newTab={t.nav.newTab} variant="dark" className="reveal mt-10 max-sm:w-full">
+            {s.perks.cta}
+          </ExternalAction>
+        </div>
+      </section>
+
       {/* The two locations side by side: an open club (primary action) and an upcoming one (secondary action). */}
       <section aria-label={`${s.refshaleoen.name} · ${s.havnegade.name}`} className="bg-paper py-24 md:py-36">
         <div className="container-page grid gap-24 lg:grid-cols-2 lg:gap-10 xl:gap-16">

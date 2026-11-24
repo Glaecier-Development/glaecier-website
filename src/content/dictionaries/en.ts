@@ -145,6 +145,9 @@ export const en: Dictionary = {
     eyebrow: "Membership",
     heading: "A community on the water",
     intro: "A private members’ club on the water – come whenever it suits you.",
+    // Soho House-inspired (client, 2026-11-24). VERIFIED (glaecier.com: Members Gus Fri & Sun 19–20, member events,
+    // "eksklusive rabatter hos lokale butikker").
+    perks: "As a member you have access to events and experiences you won’t find anywhere else – Members Gus every Friday and Sunday evening, member events and exclusive discounts at local shops.",
     paths: [
       {
         label: "Refshaleøen",
@@ -290,6 +293,11 @@ export const en: Dictionary = {
     eyebrow: "Become part of Glaecier",
     title: "Choose your place. Find your calm.",
     intro: "Sauna, harbour bathing and community in Copenhagen. Choose your location and sign up.",
+    perks: {
+      heading: "Glaecier membership",
+      body: "As a member you have access to events and experiences you won’t find anywhere else – Members Gus every Friday and Sunday evening, member events and exclusive discounts at local shops. Up to 10 visits a month on the water in Copenhagen.",
+      cta: "Join the lobby",
+    },
     refshaleoen: {
       status: "Open · Membership lobby",
       name: "Refshaleøen",
@@ -382,6 +390,32 @@ export const en: Dictionary = {
       cta: "Sign up for membership",
     },
   },
+  // Cookie policy (/cookie-policy/), client request 2026-11-24. Describes what this website actually does (checked in the
+  // code on 2026-11-24: no cookies, no analytics or tracking, fonts served from the site itself). English on both languages.
+  cookiesPage: {
+    meta: { title: "Cookie policy – Glaecier", description: "How this website uses cookies: it sets none of its own, and has no analytics or tracking." },
+    eyebrow: "Cookie policy",
+    title: "Cookie policy",
+    updated: "Last updated 24 November 2026",
+    sections: [
+      {
+        heading: "Cookies on this website",
+        body: "This website does not set any cookies of its own. It uses no analytics, advertising or tracking tools, and it does not store anything in your browser. Fonts and images are served from this website itself.",
+      },
+      {
+        heading: "Booking and payment",
+        body: "When you open the booking, Glaecier’s booking system (book.glaecier.com) is shown inside this website. It is a separate service with its own terms, and it may use cookies of its own – for example to keep you signed in or to complete a payment.",
+      },
+      {
+        heading: "Links to other websites",
+        body: "Sign-up forms, the FAQ, directions and Instagram open on other websites (glaecier.com, Google Maps and Instagram). Their own cookie rules apply there.",
+      },
+      {
+        heading: "Questions",
+        body: "If you have questions about cookies or your data, write to community@glaecier.com.",
+      },
+    ],
+  },
   // Gift cards (client, 2026-11-24): banner above the footer on every page and the /gift-card/ page. English on both
   // languages. Open Gus price VERIFIED (glaecier.com: 399 kr; Tuesday evenings and Saturdays on /gus). glaecier.com sells
   // no gift cards online, so they are ordered by email to community@glaecier.com. Client (2026-11-24): any number of
@@ -426,6 +460,7 @@ export const en: Dictionary = {
     hire: "Rent Glaecier",
     giftCards: "Gift cards",
     about: "About",
+    cookies: "Cookie policy",
     faq: "FAQ",
     language: "Language",
     disclaimer: "Prototype of a new website – not the official glaecier.com.",

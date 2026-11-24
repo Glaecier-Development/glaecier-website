@@ -100,7 +100,8 @@ export function SiteHeader({ t, locale, page = "home" }: { t: HeaderText; locale
     const onScroll = () => {
       const hero = document.querySelector<HTMLElement>("[data-hero]");
       // 128 > the 96px scroll-padding, so an in-page jump from the hero to the next section lands on the light header.
-      setSolid(window.scrollY > (hero ? hero.offsetHeight - 128 : 48));
+      // Pages without a photo hero (e.g. the cookie policy) get the light header straight away.
+      setSolid(hero ? window.scrollY > hero.offsetHeight - 128 : true);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

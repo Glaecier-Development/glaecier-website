@@ -26,6 +26,7 @@ export function Membership({ t, locale }: { t: Dictionary; locale: Locale }) {
         <div className="flex flex-col justify-center px-5 py-24 md:px-10 md:py-28 lg:px-14 lg:py-32 xl:px-24">
           <SectionIntro eyebrow={t.membership.eyebrow} heading={t.membership.heading} headingId="membership-title" className="text-fog [&_h2]:text-paper" />
           <p className="reveal mt-6 max-w-md text-lg leading-relaxed text-paper/85">{t.membership.intro}</p>
+          <p className="reveal mt-4 max-w-md font-serif text-xl leading-snug font-light text-paper md:text-2xl">{t.membership.perks}</p>
           {/* The proposition in three verified facts, set as a quiet hairline list. */}
           <ul className="reveal mt-10 max-w-lg divide-y divide-paper/15 border-y border-paper/15 text-sm text-paper/80">
             {t.membership.details.facts.map((fact) => (

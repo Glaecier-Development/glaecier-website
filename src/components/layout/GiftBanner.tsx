@@ -7,16 +7,15 @@ import { buttonClass } from "@/components/ui/buttons";
 import { Photo } from "@/components/ui/Photo";
 
 /**
- * Gift card, Villa Copenhagen-style: a wide photo with a solid harbour-blue panel overlapping it on the left, holding
- * the title, one line and the button. The photo starts at 30% so the guest's face stays clear of the panel. Shown above the footer on every page except the gift card page, with generous space around.
+ * Gift card, Villa Copenhagen-style: a harbour-blue panel with title, one line and the button beside a photo, centred
+ * with the same space on both sides. Shown above the footer on every page except the gift card page.
  */
 export function GiftBanner({ t, locale }: { t: Dictionary; locale: Locale }) {
   const b = t.giftCard.banner;
   return (
     <aside aria-labelledby="gift-banner-title" className="bg-paper py-24 md:py-36">
-      <div className="relative isolate md:min-h-[34rem]">
-        <Photo item={media.giftCard.banner} locale={locale} sizes="100vw" className="aspect-[4/3] md:absolute! md:inset-y-0 md:right-0 md:left-[30%] md:-z-10 md:aspect-auto" />
-        <div className="bg-harbour px-6 py-12 text-paper md:absolute md:inset-y-0 md:left-[8%] md:flex md:w-[min(38rem,44%)] md:flex-col md:justify-center md:px-12 lg:px-16">
+      <div className="mx-auto grid w-[84%] max-w-[90rem] md:min-h-[34rem] md:grid-cols-2">
+        <div className="flex flex-col justify-center bg-harbour px-6 py-12 text-paper md:px-12 lg:px-16">
           <h2 id="gift-banner-title" className="font-serif text-5xl leading-[1] font-light tracking-[-0.01em] uppercase md:text-7xl">
             {b.heading}
           </h2>
@@ -25,6 +24,7 @@ export function GiftBanner({ t, locale }: { t: Dictionary; locale: Locale }) {
             {b.cta}
           </Link>
         </div>
+        <Photo item={media.giftCard.banner} locale={locale} sizes="(min-width: 768px) 42vw, 84vw" className="aspect-[4/3] md:aspect-auto md:h-full" />
       </div>
     </aside>
   );
