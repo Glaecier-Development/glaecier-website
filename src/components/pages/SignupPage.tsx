@@ -100,33 +100,33 @@ export function SignupPage({ t, locale }: Props) {
       </section>
 
       {/* Prices (Refshaleøen). */}
-      <section aria-labelledby="prices-title" className="bg-ink py-24 text-paper md:py-36">
+      <section aria-labelledby="prices-title" className="bg-sand/60 py-24 text-ink md:py-36">
         <div className="container-page grid gap-y-14 lg:grid-cols-12 lg:gap-x-10">
           <div className="lg:col-span-5">
-            <SectionIntro eyebrow={s.prices.eyebrow} heading={s.prices.heading} headingId="prices-title" className="text-fog [&_h2]:text-paper" />
-            <p className="reveal mt-6 max-w-sm text-lg leading-relaxed text-paper/80">{s.prices.includes}</p>
+            <SectionIntro eyebrow={s.prices.eyebrow} heading={s.prices.heading} headingId="prices-title" className="text-wood [&_h2]:text-ink" />
+            <p className="reveal mt-6 max-w-sm text-lg leading-relaxed text-stone">{s.prices.includes}</p>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
-            <dl className="reveal border-t border-paper/20">
+            <dl className="reveal border-t border-ink/20">
               {s.prices.tiers.map((tier) => (
-                <div key={tier.who} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-paper/20 py-6 md:py-7">
-                  <dt className="text-paper/85">{tier.who}</dt>
+                <div key={tier.who} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-ink/20 py-6 md:py-7">
+                  <dt className="text-ink">{tier.who}</dt>
                   <dd className="font-serif font-light">
-                    <span className="text-5xl tabular-nums md:text-6xl">{tier.price}</span> <span className="text-lg text-fog">{s.prices.unit}</span>
+                    <span className="text-5xl tabular-nums md:text-6xl">{tier.price}</span> <span className="text-lg text-stone">{s.prices.unit}</span>
                   </dd>
                 </div>
               ))}
             </dl>
-            <ul className="reveal mt-8 flex flex-col gap-2 text-sm text-fog sm:flex-row sm:flex-wrap sm:gap-x-8">
+            <ul className="reveal mt-8 flex flex-col gap-2 text-sm text-stone sm:flex-row sm:flex-wrap sm:gap-x-8">
               {s.prices.terms.map((term) => (
                 <li key={term}>{term}</li>
               ))}
             </ul>
             <div className="reveal mt-8 flex flex-col items-start gap-3">
-              <ExternalAction href={links.membershipTerms} newTab={t.nav.newTab} variant="text" className="text-paper">
+              <ExternalAction href={links.membershipTerms} newTab={t.nav.newTab} variant="text" className="text-ink">
                 {s.prices.termsLink}
               </ExternalAction>
-              <p className="text-sm text-fog">{s.prices.havnegade}</p>
+              <p className="text-sm text-stone">{s.prices.havnegade}</p>
             </div>
           </div>
         </div>

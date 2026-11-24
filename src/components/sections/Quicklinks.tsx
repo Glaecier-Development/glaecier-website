@@ -27,7 +27,7 @@ export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
     { key: "hire", href: "#private-corporate", photos: media.quicklinks.hire, external: false },
   ];
 
-  const cardClass = "group flex h-full flex-col bg-ink text-paper focus-visible:outline-offset-[-4px] focus-visible:outline-paper";
+  const cardClass = "group flex h-full flex-col text-ink focus-visible:outline-offset-4 focus-visible:outline-ink";
   const zoom = "transition-[scale] duration-[1.2s] ease-calm group-hover:scale-[1.04] motion-reduce:group-hover:scale-100";
   const content = ({ key, photos, external }: Card) => {
     const c = q.cards[key];
@@ -39,11 +39,11 @@ export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
           ) : (
             <Photo item={photos as MediaItem} locale={locale} sizes="(min-width: 1024px) 32vw, (min-width: 640px) 60vw, 85vw" className="h-full" imgClassName={zoom} />
           )}
-          <span className="eyebrow absolute top-4 left-4 bg-ink/70 px-3 py-1.5 text-[0.6875rem] text-paper backdrop-blur-sm">{c.tag}</span>
+          <span className="eyebrow absolute top-4 left-4 bg-paper/85 px-3 py-1.5 text-[0.6875rem] text-ink backdrop-blur-sm">{c.tag}</span>
         </div>
-        <div className="flex flex-1 flex-col p-6 md:p-8">
+        <div className="flex flex-1 flex-col pt-6 md:pt-8">
           <h3 className="font-serif text-3xl leading-tight font-light">{c.title}</h3>
-          <p className="mt-4 leading-relaxed text-paper/75">{c.body}</p>
+          <p className="mt-4 leading-relaxed text-stone">{c.body}</p>
           <span className="link-underline mt-auto self-start pt-8 text-[0.75rem] font-medium tracking-[0.16em] uppercase">
             {c.cta} <span aria-hidden="true">{external ? "↗" : "→"}</span>
           </span>

@@ -43,25 +43,25 @@ export function GiftCardPage({ t, locale }: Props) {
             <p className="mt-6 max-w-md text-lg leading-relaxed text-stone">{p.body}</p>
           </div>
 
-          <article aria-label={p.title} className="bg-ink text-paper lg:col-span-6 lg:col-start-7">
+          <article aria-label={p.title} className="bg-sand/60 text-ink lg:col-span-6 lg:col-start-7">
             <Photo item={media.giftCard.tuesday} locale={locale} sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[16/10]" />
             <div className="p-6 sm:p-10">
-              <ul className="border-t border-paper/15">
+              <ul className="border-t border-ink/15">
                 {p.points.map((point) => (
-                  <li key={point} className="border-b border-paper/15 py-3 leading-relaxed">
+                  <li key={point} className="border-b border-ink/15 py-3 leading-relaxed">
                     {point}
                   </li>
                 ))}
               </ul>
               <div className="mt-8 flex flex-wrap items-center justify-between gap-6">
                 <p className="font-serif text-4xl font-light">
-                  {p.price} <span className="text-base text-paper/60">{p.per}</span>
+                  {p.price} <span className="text-base text-stone">{p.per}</span>
                 </p>
-                <a href={orderMail(p.title, p.price)} className={buttonClass("solid", "max-sm:w-full")}>
+                <a href={orderMail(p.title, p.price)} className={buttonClass("dark", "max-sm:w-full")}>
                   {g.buy}
                 </a>
               </div>
-              <p className="mt-4 text-xs text-paper/55">{g.emailNote}</p>
+              <p className="mt-4 text-xs text-stone">{g.emailNote}</p>
             </div>
           </article>
         </div>

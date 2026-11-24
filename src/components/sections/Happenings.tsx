@@ -38,38 +38,38 @@ export function Happenings({ t, locale }: { t: Dictionary; locale: Locale }) {
       <CardRail label={h.label} previous={h.previous} next={h.next}>
         {happenings.map((event) => (
           <li key={event.id} className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-1.5rem)/3.15)]">
-            <article aria-labelledby={`${event.id}-title`} className="flex h-full flex-col bg-ink text-paper">
+            <article aria-labelledby={`${event.id}-title`} className="flex h-full flex-col text-ink">
               <div className="relative">
                 <Photo item={event.photo} locale={locale} sizes="(min-width: 1024px) 32vw, (min-width: 640px) 60vw, 85vw" className="aspect-[16/10]" />
                 <p className="eyebrow absolute top-4 left-4 bg-wood/90 px-3 py-1.5 text-[0.6875rem] text-paper">{event.when}</p>
                 {event.status === "sold-out" && (
-                  <p className="eyebrow absolute top-4 right-4 bg-paper px-3 py-1.5 text-[0.6875rem] text-ink">{h.soldOut}</p>
+                  <p className="eyebrow absolute top-4 right-4 bg-paper/85 px-3 py-1.5 text-[0.6875rem] text-ink">{h.soldOut}</p>
                 )}
               </div>
 
-              <div className="flex flex-1 flex-col p-6 md:p-8">
+              <div className="flex flex-1 flex-col pt-6 md:pt-8">
                 <h3 id={`${event.id}-title`} className="font-serif text-3xl leading-tight font-light">
                   {event.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-paper/75">{event.teaser}</p>
+                <p className="mt-4 leading-relaxed text-stone">{event.teaser}</p>
 
                 {/* Native disclosure: works without JavaScript and keeps the card in place. */}
-                <details className="group mt-6 border-t border-paper/15 pt-4">
-                  <summary className="eyebrow flex cursor-pointer list-none items-center justify-between py-2 text-paper/85 hover:text-paper [&::-webkit-details-marker]:hidden">
+                <details className="group mt-6 border-t border-ink/15 pt-4">
+                  <summary className="eyebrow flex cursor-pointer list-none items-center justify-between py-2 text-ink hover:text-wood [&::-webkit-details-marker]:hidden">
                     {h.readMore}
                     <span aria-hidden="true" className="text-lg transition-transform duration-300 group-open:rotate-45">
                       +
                     </span>
                   </summary>
-                  <div className="space-y-4 pt-3 pb-2 text-sm leading-relaxed text-paper/80">
+                  <div className="space-y-4 pt-3 pb-2 text-sm leading-relaxed text-stone">
                     {event.body.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
-                    <dl className="border-t border-paper/15 pt-3">
+                    <dl className="border-t border-ink/15 pt-3">
                       {event.details.map((d) => (
                         <div key={d.label} className="flex justify-between gap-6 py-1">
-                          <dt className="eyebrow pt-0.5 text-paper/55">{d.label}</dt>
-                          <dd className="text-right">{d.value}</dd>
+                          <dt className="eyebrow pt-0.5 text-wood">{d.label}</dt>
+                          <dd className="text-right text-ink">{d.value}</dd>
                         </div>
                       ))}
                     </dl>
@@ -78,7 +78,7 @@ export function Happenings({ t, locale }: { t: Dictionary; locale: Locale }) {
 
                 <div className="mt-auto pt-8">
                   {event.status === "open" ? (
-                    <a href={mailto(event, "book")} className={buttonClass("solid")}>
+                    <a href={mailto(event, "book")} className={buttonClass("outline")}>
                       {h.book}
                     </a>
                   ) : (
@@ -86,7 +86,7 @@ export function Happenings({ t, locale }: { t: Dictionary; locale: Locale }) {
                       {event.status === "sold-out" ? h.nextOne : h.interest}
                     </a>
                   )}
-                  <p className="mt-3 text-xs text-paper/55">{h.emailNote}</p>
+                  <p className="mt-3 text-xs text-stone">{h.emailNote}</p>
                 </div>
               </div>
             </article>
