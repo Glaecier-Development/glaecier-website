@@ -41,7 +41,6 @@ export const en: Dictionary = {
           { id: "brand-activations", label: "Brand Activations" },
         ],
       },
-      { id: "our-story", label: "Our Story", children: [] },
     ],
     contact: { address: "Address", city: "1432 Copenhagen", email: "Email", instagram: "Instagram" },
   },

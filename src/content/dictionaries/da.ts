@@ -51,7 +51,6 @@ export const da = {
           { id: "brand-activations", label: "Brand Activations" },
         ],
       },
-      { id: "our-story", label: "Our Story", children: [] },
     ],
     // No phone number is published on glaecier.com (checked 2026-11-20), so the menu shows address, email and Instagram.
     contact: { address: "Address", city: "1432 Copenhagen", email: "Email", instagram: "Instagram" },
