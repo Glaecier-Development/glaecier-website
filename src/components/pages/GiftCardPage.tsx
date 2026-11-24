@@ -8,63 +8,61 @@ import { Photo } from "@/components/ui/Photo";
 
 type Props = { t: Dictionary; locale: Locale };
 
-/** The order email: the gift card is filled in; the site itself collects nothing and takes no payment. */
+/** The order email, with the gift card filled in. The site itself collects nothing and takes no payment. */
 const orderMail = (title: string, price: string) =>
-  `mailto:${site.email}?subject=${encodeURIComponent(`Gift card: ${title} (${price})`)}&body=${encodeURIComponent(
-    `Hi Glaecier,\n\nI would like to buy a gift card for ${title} (${price}).\n\nNumber of gift cards:\nName:\n`,
+  `mailto:${site.email}?subject=${encodeURIComponent(`Gift card: ${title}`)}&body=${encodeURIComponent(
+    `Hi Glaecier,\n\nI would like to buy ${title} (${price} per ticket).\n\nNumber of tickets:\nName:\n`,
   )}`;
 
 /**
- * Gift cards, in the spirit of Villa Copenhagen's gift card page: a full-screen hero, the gift cards as large photo
- * cards with price and a buy button, then how it works. glaecier.com sells no gift cards online, so buying is an email
- * to the community inbox – no payment or personal data is handled here.
+ * Gift cards, in the spirit of Villa Copenhagen's gift card page: a full-screen hero, one gift card – Open Gus tickets,
+ * any number, each used on its own, for Tuesdays or Saturdays – and how it works. glaecier.com sells no gift cards
+ * online, so buying is an email to the community inbox; no payment or personal data is handled here.
  */
 export function GiftCardPage({ t, locale }: Props) {
   const g = t.giftCard;
-  const products = [
-    { key: "tuesday", ...g.products.tuesday, photo: media.giftCard.tuesday },
-    { key: "saturday", ...g.products.saturday, photo: media.giftCard.saturday },
-  ];
+  const p = g.product;
   return (
     <>
       <PageHero item={media.giftCard.hero} locale={locale} eyebrow={g.eyebrow} title={g.title} intro={g.intro}>
-        <a href="#gift-cards" className={buttonClass("solid", "max-sm:w-full")}>
+        <a href="#gift-card" className={buttonClass("solid", "max-sm:w-full")}>
           {g.primary}
         </a>
       </PageHero>
 
-      <section id="gift-cards" aria-labelledby="gift-cards-title" className="scroll-mt-24 bg-paper py-24 md:py-36">
+      <section id="gift-card" aria-labelledby="gift-card-title" className="scroll-mt-24 bg-paper py-24 md:py-36">
         <div className="container-page">
-          <h2 id="gift-cards-title" className="reveal font-serif text-5xl leading-[1] font-light tracking-[-0.015em] uppercase md:text-7xl">
-            {g.productsHeading}
-          </h2>
-          <ul className="mt-14 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
-            {products.map((p) => (
-              <li key={p.key}>
-                <article aria-labelledby={`gift-${p.key}`} className="flex h-full flex-col bg-ink text-paper">
-                  <div className="relative">
-                    <Photo item={p.photo} locale={locale} sizes="(min-width: 768px) 48vw, 100vw" className="aspect-[4/3]" />
-                    <p className="eyebrow absolute top-4 left-4 bg-wood/90 px-3 py-1.5 text-[0.6875rem] text-paper">{p.tag}</p>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6 md:p-10">
-                    <div className="flex items-baseline justify-between gap-6">
-                      <h3 id={`gift-${p.key}`} className="font-serif text-3xl leading-tight font-light md:text-4xl">
-                        {p.title}
-                      </h3>
-                      <p className="shrink-0 font-serif text-2xl font-light md:text-3xl">{p.price}</p>
-                    </div>
-                    <p className="mt-4 max-w-md leading-relaxed text-paper/75">{p.body}</p>
-                    <div className="mt-auto pt-10">
-                      <a href={orderMail(p.title, p.price)} className={buttonClass("solid", "max-sm:w-full")}>
-                        {g.buy}
-                      </a>
-                      <p className="mt-3 text-xs text-paper/55">{g.emailNote}</p>
-                    </div>
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ul>
+          <article className="grid bg-ink text-paper lg:grid-cols-2">
+            <div className="relative">
+              <Photo item={media.giftCard.tuesday} locale={locale} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/3] lg:h-full" />
+              <p className="eyebrow absolute top-4 left-4 bg-wood/90 px-3 py-1.5 text-[0.6875rem] text-paper">{p.tag}</p>
+            </div>
+            <div className="flex flex-col p-6 sm:p-10 xl:p-14">
+              <h2 id="gift-card-title" className="font-serif text-4xl leading-[1.05] font-light md:text-5xl">
+                {p.title}
+              </h2>
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-paper/75">{p.body}</p>
+              <ul className="mt-8 border-t border-paper/15">
+                {p.points.map((point) => (
+                  <li key={point} className="flex gap-4 border-b border-paper/15 py-3 leading-relaxed">
+                    <span aria-hidden="true" className="text-wood">
+                      —
+                    </span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 font-serif text-4xl font-light">
+                {p.price} <span className="text-base text-paper/60">{p.per}</span>
+              </p>
+              <div className="mt-8">
+                <a href={orderMail(p.title, p.price)} className={buttonClass("solid", "max-sm:w-full")}>
+                  {g.buy}
+                </a>
+                <p className="mt-3 text-xs text-paper/55">{g.emailNote}</p>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 

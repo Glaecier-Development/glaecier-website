@@ -401,34 +401,37 @@ export const da = {
   },
   // Gift cards (client, 2026-11-24): banner above the footer on every page and the /gift-card/ page. English on both
   // languages. Open Gus price VERIFIED (glaecier.com: 399 kr; Tuesday evenings and Saturdays on /gus). glaecier.com sells
-  // no gift cards online, so they are ordered by email to community@glaecier.com.
+  // no gift cards online, so they are ordered by email to community@glaecier.com. Client (2026-11-24): any number of
+  // tickets, each used individually, for Open Gus on Tuesdays or Saturdays.
   giftCard: {
     meta: {
       title: "Gift cards – Glaecier",
       description: "Give a warm gift: an Open Gus at Glaecier, a guided sauna gus on the water in Copenhagen. 399 DKK.",
     },
-    banner: {
-      eyebrow: "Gift cards",
-      heading: "Buy a warm gift",
-      body: "Give someone an Open Gus – a guided sauna gus on the water in Copenhagen.",
-      cta: "Buy a warm gift",
-    },
+    banner: { heading: "Buy a warm gift", label: "Gift cards" },
     eyebrow: "Gift cards",
     title: "Give a warm gift",
-    intro: "An Open Gus at Glaecier: a guided sauna gus with three rounds on the water in Copenhagen – no membership needed.",
-    primary: "See gift cards",
-    productsHeading: "Choose a gift card",
-    products: {
-      tuesday: { tag: "Tuesday", title: "Open Gus – Tuesday evening", body: "A guided sauna gus with three rounds on one of our Tuesday evening sessions.", price: "399 DKK" },
-      saturday: { tag: "Saturday", title: "Open Gus – Saturday", body: "A guided sauna gus with three rounds on one of our Saturday sessions.", price: "399 DKK" },
+    intro: "Tickets for Open Gus at Glaecier – a guided sauna gus with three rounds on the water in Copenhagen. No membership needed.",
+    primary: "Buy tickets",
+    product: {
+      tag: "Open Gus",
+      title: "Open Gus gift tickets",
+      body: "Give the heat of a guided saunagus: three rounds in the panorama sauna, a dip in the floating pool and time to land. Our Open Gus sessions are held on Tuesdays and Saturdays.",
+      points: [
+        "For Open Gus on Tuesdays or Saturdays",
+        "Buy as many tickets as you like",
+        "Each ticket is used on its own – give them to different people or use them on different days",
+      ],
+      price: "399 DKK",
+      per: "per ticket",
     },
-    buy: "Buy by email",
+    buy: "Buy tickets by email",
     emailNote: "Opens an email to community@glaecier.com",
     howHeading: "How it works",
     steps: [
-      { title: "Choose and write", body: "Pick a gift card and send us an email – it opens with the gift card filled in." },
-      { title: "We get back to you", body: "We reply with how to pay and how you receive the gift card." },
-      { title: "Enjoy the heat", body: "The recipient joins an Open Gus on the day the gift card is for." },
+      { title: "Tell us how many", body: "Send us an email with the number of tickets you would like – it opens with the gift card filled in." },
+      { title: "We get back to you", body: "We reply with how to pay and how you receive the tickets." },
+      { title: "Enjoy the heat", body: "Each ticket is used on its own, for an Open Gus on a Tuesday or a Saturday." },
     ],
     note: "Questions about gift cards? Write to community@glaecier.com.",
   },
