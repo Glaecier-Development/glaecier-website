@@ -8,7 +8,9 @@ behind the current design, and where the work stands.
 
 - **Never commit, push, merge or deploy without explicit approval for that specific step.** Approval for one update
   does not carry over to the next.
-- The public preview (https://sebastianbf1.github.io/glaecier-website/) is only updated after explicit approval.
+- The public preview (https://glaecier-development.github.io/glaecier-website/en/; the repo moved to the
+  Glaecier-Development organisation, so the old sebastianbf1.github.io address is gone) is only updated after explicit
+  approval.
 - **Never touch glaecier.com** or its WordPress site. Proposals for it are delivered as files, not applied.
 - Do not invent services, prices, opening dates, facilities, availability or photos. No AI-generated imagery. Copy
   for prices, terms and opening status must match the official pages (mark verified strings with a `// VERIFIED`
@@ -58,16 +60,16 @@ behind the current design, and where the work stands.
 - Havnegade is a future location (opening announced for 2027, details unconfirmed): never show Refshaleøen photos
   as Havnegade. The harbour photo `havnegade-havnebus` is the client's city view, not the facility.
 
-## State as of 2026-11-16
+## State as of 2026-11-25
 
-- `main`: last approved homepage work.
-- `booking-embed` (pushed, also what `preview` currently shows): the `/book/` iframe embed. Not merged into `main`.
-- `signup-pages` (local, based on `booking-embed`): uncommitted change pointing all sign-up buttons straight at the
-  official forms (`Membership.tsx`, `SignupPage.tsx`). A git stash holds an earlier, rejected version with separate
-  `/signup-refshaleoen/` and `/signup-havnegade/` info pages.
-- A CSS proposal restyling the two WordPress forms in GLAECIER branding (`docs/wordpress-signup-forms.css`, local)
-  awaits the owner's decision; it changes nothing functional.
-- GitHub Pages was found disabled on 2026-11-12 and re-enabled (build type: GitHub Actions).
+- `main` = `preview` (deployed): homepage work plus the sign-up pop-ups and the API opening hours. Next.js is on
+  16.4.6, which fixes the moderate advisories (GHSA-mfr8-8qww-v76h and others) that made `next build` stop once with a
+  "SecurityFatalError" on 16.4.3.
+- The site is English only (`publishedLocales`); `/da/` addresses forward to `/en/`.
+- Older local branches (`signup-pages`, `signup-refshaleoen-form` with an unconnected own lobby form) are superseded by
+  the booking-app sign-up and kept only for reference.
+- The deploy workflow and README still set `NEXT_PUBLIC_SITE_URL` to the old sebastianbf1.github.io address, so
+  canonical/Open Graph URLs point there until that is updated.
 
 ## Open items and risks
 
