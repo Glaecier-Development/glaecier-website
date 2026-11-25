@@ -24,9 +24,8 @@ function Points({ items, tone }: { items: string[]; tone: "ink" | "paper" }) {
 }
 
 /**
- * Membership / sign-up. Both registrations stay in glaecier.com's own forms (they post to WordPress with a reCAPTCHA
- * bound to that domain, link the terms and privacy policy, and offer no API or approved embed), so this page explains
- * the two locations and hands over to the right form. It collects nothing itself. See docs/refinement-06.md.
+ * Membership / sign-up. Both registrations happen in Glaecier's booking app (book.glaecier.com/signup/…), which the
+ * sign-up buttons open in the booking pop-up (BookingDialog). This page explains the two locations and collects nothing.
  */
 export function SignupPage({ t, locale }: Props) {
   const s = t.signup;
@@ -48,9 +47,9 @@ export function SignupPage({ t, locale }: Props) {
             {s.perks.heading}
           </h2>
           <p className="reveal mt-8 max-w-2xl text-lg leading-relaxed text-ink md:text-xl">{s.perks.body}</p>
-          <ExternalAction href={links.signupRefshaleoen} newTab={t.nav.newTab} variant="dark" className="reveal mt-10 max-sm:w-full">
+          <a href={links.signupRefshaleoen} className={buttonClass("dark", "reveal mt-10 max-sm:w-full")}>
             {s.perks.cta}
-          </ExternalAction>
+          </a>
         </div>
       </section>
 
@@ -70,10 +69,9 @@ export function SignupPage({ t, locale }: Props) {
               <p className="mt-6 font-serif text-2xl leading-snug font-light">{s.refshaleoen.title}</p>
               <p className="mt-3 max-w-md leading-relaxed text-stone">{s.refshaleoen.body}</p>
               <Points items={s.refshaleoen.points} tone="ink" />
-              <ExternalAction href={links.signupRefshaleoen} newTab={t.nav.newTab} variant="dark" className="mt-10 max-sm:w-full">
+              <a href={links.signupRefshaleoen} className={buttonClass("dark", "mt-10 max-sm:w-full")}>
                 {s.refshaleoen.cta}
-                <span aria-hidden="true">↗</span>
-              </ExternalAction>
+              </a>
             </div>
           </article>
 
@@ -90,10 +88,9 @@ export function SignupPage({ t, locale }: Props) {
               <p className="mt-6 font-serif text-2xl leading-snug font-light">{s.havnegade.title}</p>
               <p className="mt-3 max-w-md leading-relaxed text-stone">{s.havnegade.body}</p>
               <Points items={s.havnegade.points} tone="ink" />
-              <ExternalAction href={links.signupHavnegade} newTab={t.nav.newTab} variant="outline" className="mt-10 border-ink/60 hover:border-ink hover:bg-ink/5 max-sm:w-full">
+              <a href={links.signupHavnegade} className={buttonClass("outline", "mt-10 border-ink/60 hover:border-ink hover:bg-ink/5 max-sm:w-full")}>
                 {s.havnegade.cta}
-                <span aria-hidden="true">↗</span>
-              </ExternalAction>
+              </a>
             </div>
           </article>
         </div>
@@ -147,10 +144,9 @@ export function SignupPage({ t, locale }: Props) {
           </ol>
           <div className="reveal mt-14 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <p className="max-w-xl text-sm leading-relaxed text-stone">{s.privacy}</p>
-            <ExternalAction href={links.signupRefshaleoen} newTab={t.nav.newTab} variant="dark" className="shrink-0 max-sm:w-full">
+            <a href={links.signupRefshaleoen} className={buttonClass("dark", "shrink-0 max-sm:w-full")}>
               {s.refshaleoen.cta}
-              <span aria-hidden="true">↗</span>
-            </ExternalAction>
+            </a>
           </div>
         </div>
       </section>

@@ -13,15 +13,14 @@ import { Wordmark } from "@/components/ui/Wordmark";
 type Card = { key: keyof Dictionary["quicklinks"]["cards"]; href: string; photos: MediaItem | readonly (readonly MediaItem[])[]; external: boolean };
 
 /**
- * Welcome text, then a sideways-scrolling row of cards, each one a way in: the two official sign-up forms and Bring a
- * Friend (glaecier.com, new tab, as everywhere else on the site), booking (opens the booking pop-up, see BookingDialog)
- * and private hire (the section further down this page).
+ * Welcome text, then a sideways-scrolling row of cards, each one a way in: the two sign-up forms and booking (all open
+ * the booking pop-up, see BookingDialog), Bring a Friend (glaecier.com, new tab) and private hire (further down).
  */
 export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
   const q = t.quicklinks;
   const cards: Card[] = [
-    { key: "refshaleoen", href: links.signupRefshaleoen, photos: media.quicklinks.refshaleoen, external: true },
-    { key: "havnegade", href: links.signupHavnegade, photos: media.quicklinks.havnegade, external: true },
+    { key: "refshaleoen", href: links.signupRefshaleoen, photos: media.quicklinks.refshaleoen, external: false },
+    { key: "havnegade", href: links.signupHavnegade, photos: media.quicklinks.havnegade, external: false },
     { key: "book", href: pages.book(locale), photos: media.quicklinks.book, external: false },
     { key: "baf", href: links.bringAFriend, photos: media.quicklinks.baf, external: true },
     { key: "hire", href: "#private-corporate", photos: media.quicklinks.hire, external: false },

@@ -20,7 +20,20 @@ export const en: Dictionary = {
     book: "Book",
     home: "Glaecier – home",
     newTab: "(opens in a new tab)",
-    bookingDialog: { title: "Book Open Gus", close: "Close booking" },
+    bookingDialog: {
+      title: "Book Open Gus",
+      close: "Close booking",
+      signup: {
+        close: "Close sign-up",
+        frameTitle: "Glaecier sign-up form",
+        loading: "Loading the sign-up…",
+        slow: "The sign-up is taking longer than usual. You can also open it in a new window below.",
+        failedTitle: "The sign-up can't be reached right now",
+        failedBody: "Check your connection and try again, or open the sign-up in a new window.",
+        note: "Sign-up runs on Glaecier's official booking system.",
+        open: "Open the sign-up in a new window",
+      },
+    },
     language: { label: "Language", current: "EN", switchTo: "Dansk" },
     items: [
       {
@@ -343,12 +356,12 @@ export const en: Dictionary = {
       eyebrow: "How to become a member",
       heading: "Three calm steps",
       items: [
-        { title: "Join the lobby", body: "Free and non-binding – in Glaecier's official form." },
+        { title: "Join the lobby", body: "Free and non-binding – in Glaecier's official booking system." },
         { title: "Invitations are drawn at random", body: "Everyone in the lobby has an equal chance – at any time." },
         { title: "An introduction, and you're in", body: "Invited members attend a mandatory introduction before their membership starts." },
       ],
     },
-    privacy: "You sign up in Glaecier's official form on glaecier.com, where you also accept the terms and privacy policy. This page stores no information.",
+    privacy: "You sign up in Glaecier's official booking system (book.glaecier.com), which opens in a window on this page. This page stores no information.",
     gus: { heading: "Want to experience Glaecier without being a member?", cta: "Book Open Gus" },
   },
   // About page (/about/), built like Villa Copenhagen's About page with Glaecier's own facts (client, 2026-11-24). English on
@@ -406,11 +419,11 @@ export const en: Dictionary = {
       },
       {
         heading: "Booking and payment",
-        body: "When you open the booking, Glaecier’s booking system (book.glaecier.com) is shown inside this website. It is a separate service with its own terms, and it may use cookies of its own – for example to keep you signed in or to complete a payment.",
+        body: "When you open the booking or a sign-up form, Glaecier’s booking system (book.glaecier.com) is shown inside this website. It is a separate service with its own terms, and it may use cookies of its own – for example to keep you signed in or to complete a payment.",
       },
       {
         heading: "Links to other websites",
-        body: "Sign-up forms, the FAQ, directions and Instagram open on other websites (glaecier.com, Google Maps and Instagram). Their own cookie rules apply there.",
+        body: "The FAQ, directions and Instagram open on other websites (glaecier.com, Google Maps and Instagram). Their own cookie rules apply there.",
       },
       {
         heading: "Questions",
