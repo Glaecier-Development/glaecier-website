@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "check:export": "node scripts/check-export.mjs"
+    "check:export": "node scripts/check-export.mjs",
+    "test": "node scripts/check-open-hours.mjs"
   },
   "dependencies": {
     "next": "^16.4.3",

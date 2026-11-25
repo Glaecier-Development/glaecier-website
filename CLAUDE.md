@@ -51,6 +51,10 @@ behind the current design, and where the work stands.
   `https://glaecier.com/signup-refshaleoen/` and every "Forhåndstilmeld dig" / "Pre-register" button opens
   `https://glaecier.com/signup-havnegade/` directly (new tab, no page in between). There are no English versions of
   these forms. The site collects no personal data. Prices, terms and explanations stay on `/signup/`.
+- **Opening hours** (client, 2026-11-25): the footer reads `GET https://api.glaecier.com/open_hours` (public, CORS *)
+  at build time and again in the browser on every page load (`src/lib/open-hours.ts`, `OpeningHours.tsx`). An invalid
+  or failed response keeps the last good hours; `site.hours` is only the fallback if the API was down at build time.
+  `npm test` checks the parser.
 - Havnegade is a future location (opening announced for 2027, details unconfirmed): never show Refshaleøen photos
   as Havnegade. The harbour photo `havnegade-havnebus` is the client's city view, not the facility.
 
