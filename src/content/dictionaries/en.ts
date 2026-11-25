@@ -468,6 +468,7 @@ export const en: Dictionary = {
     instagram: "Instagram",
     hours: "Members’ opening hours",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    closed: "Closed",
     hoursNote: "Tuesday evenings are reserved for Open Gus.",
     explore: "Explore",
     signup: "Sign up for membership",
