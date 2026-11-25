@@ -8,7 +8,9 @@ behind the current design, and where the work stands.
 
 - **Never commit, push, merge or deploy without explicit approval for that specific step.** Approval for one update
   does not carry over to the next.
-- The public preview (https://sebastianbf1.github.io/glaecier-website/) is only updated after explicit approval.
+- The public preview (https://glaecier-development.github.io/glaecier-website/en/; the repo moved to the
+  Glaecier-Development organisation, so the old sebastianbf1.github.io address is gone) is only updated after explicit
+  approval.
 - **Never touch glaecier.com** or its WordPress site. Proposals for it are delivered as files, not applied.
 - Do not invent services, prices, opening dates, facilities, availability or photos. No AI-generated imagery. Copy
   for prices, terms and opening status must match the official pages (mark verified strings with a `// VERIFIED`
@@ -46,24 +48,28 @@ behind the current design, and where the work stands.
   X-Frame-Options / frame-ancestors). `src/components/ui/BookingFrame.tsx` adds a branded loader, failure detection
   (no-cors probe) with retry, a slow-load hint after 15 s and a note once the frame navigates to Flexybox checkout.
   The app is English-only and is never modified. Never try to bypass iframe restrictions or recreate booking/payment.
-- **Membership sign-up**: the official WordPress forms post to themselves with a reCAPTCHA bound to glaecier.com and
-  offer no API or approved embed. So every "Tilmeld dig lobbyen" / "Join the lobby" button opens
-  `https://glaecier.com/signup-refshaleoen/` and every "Forhåndstilmeld dig" / "Pre-register" button opens
-  `https://glaecier.com/signup-havnegade/` directly (new tab, no page in between). There are no English versions of
-  these forms. The site collects no personal data. Prices, terms and explanations stay on `/signup/`.
+- **Membership sign-up** (client, 2026-11-25): sign-up now runs in the booking app. Every "Join the lobby" button
+  links to `https://book.glaecier.com/signup/refshaleoen` and every "Pre-register" button to
+  `https://book.glaecier.com/signup/havnegade`; `BookingDialog` opens them in the same pop-up as "Book" (plain links,
+  so a new-tab click or no JavaScript still reaches the form). The old WordPress forms are no longer linked. The site
+  itself collects no personal data. Prices, terms and explanations stay on `/signup/`.
+- **Opening hours** (client, 2026-11-25): the footer reads `GET https://api.glaecier.com/open_hours` (public, CORS *)
+  at build time and again in the browser on every page load (`src/lib/open-hours.ts`, `OpeningHours.tsx`). An invalid
+  or failed response keeps the last good hours; `site.hours` is only the fallback if the API was down at build time.
+  `npm test` checks the parser.
 - Havnegade is a future location (opening announced for 2027, details unconfirmed): never show Refshaleøen photos
   as Havnegade. The harbour photo `havnegade-havnebus` is the client's city view, not the facility.
 
-## State as of 2026-11-16
+## State as of 2026-11-25
 
-- `main`: last approved homepage work.
-- `booking-embed` (pushed, also what `preview` currently shows): the `/book/` iframe embed. Not merged into `main`.
-- `signup-pages` (local, based on `booking-embed`): uncommitted change pointing all sign-up buttons straight at the
-  official forms (`Membership.tsx`, `SignupPage.tsx`). A git stash holds an earlier, rejected version with separate
-  `/signup-refshaleoen/` and `/signup-havnegade/` info pages.
-- A CSS proposal restyling the two WordPress forms in GLAECIER branding (`docs/wordpress-signup-forms.css`, local)
-  awaits the owner's decision; it changes nothing functional.
-- GitHub Pages was found disabled on 2026-11-12 and re-enabled (build type: GitHub Actions).
+- `main` = `preview` (deployed): homepage work plus the sign-up pop-ups and the API opening hours. Next.js is on
+  16.4.6, which fixes the moderate advisories (GHSA-mfr8-8qww-v76h and others) that made `next build` stop once with a
+  "SecurityFatalError" on 16.4.3.
+- The site is English only (`publishedLocales`); `/da/` addresses forward to `/en/`.
+- Older local branches (`signup-pages`, `signup-refshaleoen-form` with an unconnected own lobby form) are superseded by
+  the booking-app sign-up and kept only for reference.
+- The deploy workflow and README still set `NEXT_PUBLIC_SITE_URL` to the old sebastianbf1.github.io address, so
+  canonical/Open Graph URLs point there until that is updated.
 
 ## Open items and risks
 

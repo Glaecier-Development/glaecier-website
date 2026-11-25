@@ -3,7 +3,9 @@ import type { Dictionary } from "@/content/dictionaries";
 import { site } from "@/content/site";
 import { publishedLocales, type Locale } from "@/i18n/config";
 import { links, pages, type Page } from "@/content/links";
+import { OpeningHours } from "@/components/ui/OpeningHours";
 import { Wordmark } from "@/components/ui/Wordmark";
+import { fetchOpenHours } from "@/lib/open-hours";
 import { GiftBanner } from "./GiftBanner";
 
 const heading = "eyebrow text-paper/60";
@@ -13,8 +15,10 @@ const link = "link-underline py-1 uppercase tracking-[0.08em]";
  * Closing scene in dark charcoal, laid out like Villa Copenhagen's footer: the wordmark centred on top,
  * then visit / contact / hours / explore in centred columns, and a quiet bottom line. No partner logos yet.
  */
-export function SiteFooter({ t, locale, page = "home" }: { t: Dictionary; locale: Locale; page?: Page }) {
+export async function SiteFooter({ t, locale, page = "home" }: { t: Dictionary; locale: Locale; page?: Page }) {
   const f = t.footer;
+  // Read from the API at build time; site.hours only if the API is unreachable then. OpeningHours refreshes in the browser.
+  const hours = (await fetchOpenHours()) ?? site.hours.map(([open, close]) => ({ open, close, closed: false }));
   const home = page === "home" ? "" : pages.home(locale);
   return (
     <>
@@ -60,16 +64,7 @@ export function SiteFooter({ t, locale, page = "home" }: { t: Dictionary; locale
 
             <div id="opening-hours">
               <h2 className={heading}>{f.hours}</h2>
-              <dl className="mx-auto mt-5 max-w-60">
-                {site.hours.map(([open, close], i) => (
-                  <div key={i} className="flex justify-between border-b border-paper/15 py-1.5">
-                    <dt>{f.days[i]}</dt>
-                    <dd className="tabular-nums">
-                      {open}–{close}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+              <OpeningHours initial={hours} days={f.days} closed={f.closed} className="mx-auto mt-5 max-w-60" />
               <p className="mx-auto mt-3 max-w-60 text-xs text-paper/60">{f.hoursNote}</p>
             </div>
 

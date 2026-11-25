@@ -17,7 +17,7 @@ export type HeaderText = Pick<Dictionary, "nav" | "prototype">;
 const itemHref = (id: string, locale: Locale, page: Page) =>
   id === "membership" ? pages.signup(locale) : id === "book" ? pages.book(locale) : id === "about" ? pages.about(locale) : page === "home" ? `#${id}` : `${pages.home(locale)}#${id}`;
 
-/** Sub-items that leave the site: the official sign-up forms (opened in a new tab, as everywhere else). */
+/** Sub-items that point into the booking app: the sign-up forms (opened in the booking pop-up). */
 const externalChild: Record<string, string> = { refshaleoen: links.signupRefshaleoen, havnegade: links.signupHavnegade };
 
 function LanguageSwitch({ t, locale, page, className = "" }: { t: HeaderText; locale: Locale; page: Page; className?: string }) {
@@ -47,7 +47,7 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const menuPhoto = `${base}/media/sauna-ovne-mod-havnen-1080.webp`;
 
 /** One row in the menu: an uppercase link with a hairline below; items with children get a +/- toggle. */
-function MenuRow({ item, href, base: home, close, newTab }: { item: NavItem; href: string; base: string; close: () => void; newTab: string }) {
+function MenuRow({ item, href, base: home, close }: { item: NavItem; href: string; base: string; close: () => void }) {
   const [open, setOpen] = useState(false);
   return (
     <li className="menu-item border-b border-ink/15">
@@ -74,9 +74,9 @@ function MenuRow({ item, href, base: home, close, newTab }: { item: NavItem; hre
           {item.children.map((child) => (
             <li key={child.id}>
               {externalChild[child.id] ? (
-                <a href={externalChild[child.id]} target="_blank" rel="noopener noreferrer" onClick={close} className="block py-2 pl-4 text-base text-stone transition-colors hover:text-ink">
-                  {child.label} <span aria-hidden="true">↗</span>
-                  <span className="sr-only"> {newTab}</span>
+                // Opens in the booking pop-up (BookingDialog), which also closes this menu.
+                <a href={externalChild[child.id]} className="block py-2 pl-4 text-base text-stone transition-colors hover:text-ink">
+                  {child.label}
                 </a>
               ) : (
                 <Link prefetch={false} href={`${home}#${child.id}`} onClick={close} className="block py-2 pl-4 text-base text-stone transition-colors hover:text-ink">
@@ -189,7 +189,7 @@ export function SiteHeader({ t, locale, page = "home" }: { t: HeaderText; locale
                   </Link>
                 </li>
                 {t.nav.items.map((item) => (
-                  <MenuRow key={item.id} item={item} href={itemHref(item.id, locale, page)} base={home} close={close} newTab={t.nav.newTab} />
+                  <MenuRow key={item.id} item={item} href={itemHref(item.id, locale, page)} base={home} close={close} />
                 ))}
               </ul>
             </nav>
