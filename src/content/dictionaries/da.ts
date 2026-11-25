@@ -28,7 +28,21 @@ export const da = {
     home: "Glaecier – forside",
     newTab: "(åbner i en ny fane)",
     // Pop-up with the live booking app, opened by every "Book" button.
-    bookingDialog: { title: "Book Open Gus", close: "Luk bookingen" },
+    bookingDialog: {
+      title: "Book Open Gus",
+      close: "Luk bookingen",
+      // The same pop-up opens the sign-up forms in the booking app (titles come from the quicklink cards).
+      signup: {
+        close: "Luk tilmeldingen",
+        frameTitle: "Glaeciers tilmeldingsformular",
+        loading: "Henter tilmeldingen…",
+        slow: "Tilmeldingen er længere tid om at hente end normalt. Du kan også åbne den i et nyt vindue nedenfor.",
+        failedTitle: "Tilmeldingen kan ikke hentes lige nu",
+        failedBody: "Tjek din forbindelse og prøv igen, eller åbn tilmeldingen i et nyt vindue.",
+        note: "Tilmeldingen foregår i Glaeciers officielle bookingsystem, som er på engelsk.",
+        open: "Åbn tilmeldingen i et nyt vindue",
+      },
+    },
     language: { label: "Sprog", current: "DA", switchTo: "English" },
     // Ids pick the target (see SiteHeader): membership → /signup/, its children → the official forms, book → booking
     // pop-up, the rest → sections of the homepage.
@@ -402,12 +416,12 @@ export const da = {
       heading: "Tre rolige skridt",
       // VERIFIED (lobby process)
       items: [
-        { title: "Tilmeld dig lobbyen", body: "Gratis og uforpligtende – i Glaeciers officielle formular." },
+        { title: "Tilmeld dig lobbyen", body: "Gratis og uforpligtende – i Glaeciers officielle bookingsystem." },
         { title: "Invitationer trækkes tilfældigt", body: "Alle i lobbyen har lige stor chance – når som helst." },
         { title: "Introduktion, og så er du medlem", body: "Inviterede deltager i en obligatorisk introduktion, før medlemskabet starter." },
       ],
     },
-    privacy: "Tilmeldingen foregår i Glaeciers officielle formular på glaecier.com, hvor du også accepterer vilkår og privatlivspolitik. Denne side gemmer ingen oplysninger.",
+    privacy: "Tilmeldingen foregår i Glaeciers officielle bookingsystem (book.glaecier.com), som åbner i et vindue på denne side. Denne side gemmer ingen oplysninger.",
     gus: { heading: "Vil du opleve Glaecier uden at være medlem?", cta: "Book Open Gus" }, // VERIFIED
   },
   // About page (/about/), built like Villa Copenhagen's About page with Glaecier's own facts (client, 2026-11-24). English on
@@ -465,11 +479,11 @@ export const da = {
       },
       {
         heading: "Booking and payment",
-        body: "When you open the booking, Glaecier’s booking system (book.glaecier.com) is shown inside this website. It is a separate service with its own terms, and it may use cookies of its own – for example to keep you signed in or to complete a payment.",
+        body: "When you open the booking or a sign-up form, Glaecier’s booking system (book.glaecier.com) is shown inside this website. It is a separate service with its own terms, and it may use cookies of its own – for example to keep you signed in or to complete a payment.",
       },
       {
         heading: "Links to other websites",
-        body: "Sign-up forms, the FAQ, directions and Instagram open on other websites (glaecier.com, Google Maps and Instagram). Their own cookie rules apply there.",
+        body: "The FAQ, directions and Instagram open on other websites (glaecier.com, Google Maps and Instagram). Their own cookie rules apply there.",
       },
       {
         heading: "Questions",

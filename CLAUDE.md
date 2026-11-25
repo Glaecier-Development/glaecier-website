@@ -46,11 +46,11 @@ behind the current design, and where the work stands.
   X-Frame-Options / frame-ancestors). `src/components/ui/BookingFrame.tsx` adds a branded loader, failure detection
   (no-cors probe) with retry, a slow-load hint after 15 s and a note once the frame navigates to Flexybox checkout.
   The app is English-only and is never modified. Never try to bypass iframe restrictions or recreate booking/payment.
-- **Membership sign-up**: the official WordPress forms post to themselves with a reCAPTCHA bound to glaecier.com and
-  offer no API or approved embed. So every "Tilmeld dig lobbyen" / "Join the lobby" button opens
-  `https://glaecier.com/signup-refshaleoen/` and every "Forhåndstilmeld dig" / "Pre-register" button opens
-  `https://glaecier.com/signup-havnegade/` directly (new tab, no page in between). There are no English versions of
-  these forms. The site collects no personal data. Prices, terms and explanations stay on `/signup/`.
+- **Membership sign-up** (client, 2026-11-25): sign-up now runs in the booking app. Every "Join the lobby" button
+  links to `https://book.glaecier.com/signup/refshaleoen` and every "Pre-register" button to
+  `https://book.glaecier.com/signup/havnegade`; `BookingDialog` opens them in the same pop-up as "Book" (plain links,
+  so a new-tab click or no JavaScript still reaches the form). The old WordPress forms are no longer linked. The site
+  itself collects no personal data. Prices, terms and explanations stay on `/signup/`.
 - Havnegade is a future location (opening announced for 2027, details unconfirmed): never show Refshaleøen photos
   as Havnegade. The harbour photo `havnegade-havnebus` is the client's city view, not the facility.
 

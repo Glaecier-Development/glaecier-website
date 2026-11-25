@@ -9,10 +9,10 @@ export const links = {
   bookingApp: "https://book.glaecier.com/",
   /** Flexybox member login. */
   memberLogin: "https://profile.flexybox.com/glaecier/sign-in",
-  /** Refshaleøen membership lobby sign-up form. */
-  signupRefshaleoen: "https://glaecier.com/signup-refshaleoen/",
-  /** Havnegade pre-registration form. */
-  signupHavnegade: "https://glaecier.com/signup-havnegade/",
+  /** Refshaleøen membership lobby sign-up in the booking app, opened in the booking pop-up (client, 2026-11-25). */
+  signupRefshaleoen: "https://book.glaecier.com/signup/refshaleoen",
+  /** Havnegade pre-registration in the booking app, opened in the booking pop-up. */
+  signupHavnegade: "https://book.glaecier.com/signup/havnegade",
   /** Bring a Friend: how members bring guests (prices, peak hours, rules). */
   bringAFriend: "https://glaecier.com/baf",
   /** Membership and subscription terms (linked from the official sign-up form). */

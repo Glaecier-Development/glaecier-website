@@ -41,7 +41,13 @@ export default async function RootLayout({ children, params }: Props) {
           {t.nav.skip}
         </a>
         {children}
-        <BookingDialog text={{ ...t.nav.bookingDialog, frame: { ...t.book.sessions.booking, newTab: t.nav.newTab } }} />
+        <BookingDialog
+          text={{
+            ...t.nav.bookingDialog,
+            frame: { ...t.book.sessions.booking, newTab: t.nav.newTab },
+            signupTitles: { refshaleoen: t.quicklinks.cards.refshaleoen.title, havnegade: t.quicklinks.cards.havnegade.title },
+          }}
+        />
       </body>
     </html>
   );
