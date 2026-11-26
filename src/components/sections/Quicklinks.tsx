@@ -26,26 +26,27 @@ export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
     { key: "hire", href: "#private-corporate", photos: media.quicklinks.hire, external: false },
   ];
 
-  const cardClass = "group flex h-full flex-col text-ink focus-visible:outline-offset-4 focus-visible:outline-ink";
-  const zoom = "transition-[scale] duration-[1.2s] ease-calm group-hover:scale-[1.04] motion-reduce:group-hover:scale-100";
+  // Big photo tiles with the name centred on the photo, like the Locations tiles (client, 2026-11-26).
+  const cardClass =
+    "group relative isolate flex aspect-[4/5] items-center justify-center overflow-hidden text-center text-paper focus-visible:outline-offset-4 focus-visible:outline-ink";
+  const zoom = "transition-[scale] duration-[1.2s] ease-calm group-hover:scale-[1.03] motion-reduce:group-hover:scale-100";
   const content = ({ key, photos, external }: Card) => {
     const c = q.cards[key];
     return (
       <>
-        <div className="relative aspect-[16/10] overflow-hidden">
+        <span className="absolute inset-0 -z-20">
           {Array.isArray(photos) ? (
-            <PhotoCycle sets={photos} locale={locale} sizes="(min-width: 1024px) 16vw, (min-width: 640px) 30vw, 43vw" imgClassName={zoom} />
+            <PhotoCycle sets={photos} locale={locale} sizes="(min-width: 1024px) 23vw, (min-width: 640px) 30vw, 43vw" imgClassName={zoom} />
           ) : (
-            <Photo item={photos as MediaItem} locale={locale} sizes="(min-width: 1024px) 32vw, (min-width: 640px) 60vw, 85vw" className="h-full" imgClassName={zoom} />
+            <Photo item={photos as MediaItem} locale={locale} sizes="(min-width: 1024px) 46vw, (min-width: 640px) 60vw, 85vw" className="h-full" imgClassName={zoom} />
           )}
-          <span className="eyebrow absolute top-4 left-4 bg-paper/85 px-3 py-1.5 text-[0.6875rem] text-ink backdrop-blur-sm">{c.tag}</span>
-        </div>
-        <div className="flex flex-1 flex-col pt-6 md:pt-8">
-          <h3 className="font-serif text-3xl leading-tight font-light">{c.title}</h3>
-          <p className="mt-4 leading-relaxed text-stone">{c.body}</p>
-          {/* No "Read more" line: the whole card is the link (client, 2026-11-24). */}
+        </span>
+        <span aria-hidden="true" className="absolute inset-0 -z-10 bg-ink/30 transition-colors duration-500 group-hover:bg-ink/20" />
+        <span className="px-6">
+          <span className="block font-serif text-4xl leading-none font-light uppercase [text-shadow:0_1px_24px_rgb(0_0_0/0.3)] md:text-6xl">{c.title}</span>
+          <span className="eyebrow mt-5 block text-paper/90">{c.tag}</span>
           {external && <span className="sr-only"> {t.nav.newTab}</span>}
-        </div>
+        </span>
       </>
     );
   };
@@ -67,7 +68,7 @@ export function Quicklinks({ t, locale }: { t: Dictionary; locale: Locale }) {
       </div>
       <CardRail label={q.label} previous={q.previous} next={q.next}>
         {cards.map((card) => (
-          <li key={card.key} className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-1.5rem)/3.15)]">
+          <li key={card.key} className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-1.5rem)/2.15)]">
             {card.external ? (
               <a href={card.href} target="_blank" rel="noopener noreferrer" className={cardClass}>
                 {content(card)}
