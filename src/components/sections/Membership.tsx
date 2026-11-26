@@ -1,13 +1,13 @@
 import type { Dictionary } from "@/content/dictionaries";
 import { media } from "@/content/media";
 import type { Locale } from "@/i18n/config";
-import { pages } from "@/content/links";
-import { InternalAction } from "@/components/ui/buttons";
+import { links } from "@/content/links";
+import { buttonClass } from "@/components/ui/buttons";
 import { Photo } from "@/components/ui/Photo";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 
 export function Membership({ t, locale }: { t: Dictionary; locale: Locale }) {
-  const [lobby, havnegade] = t.membership.paths;
+  const m = t.membership;
   return (
     <section id="membership" aria-labelledby="membership-title" className="bg-sand/60 text-ink">
       <div className="grid lg:min-h-svh lg:grid-cols-2">
@@ -25,37 +25,22 @@ export function Membership({ t, locale }: { t: Dictionary; locale: Locale }) {
 
         <div className="flex flex-col justify-center px-5 py-24 md:px-10 md:py-28 lg:px-14 lg:py-32 xl:px-24">
           <SectionIntro eyebrow={t.membership.eyebrow} heading={t.membership.heading} headingId="membership-title" className="text-wood [&_h2]:text-ink" />
-          <p className="reveal mt-6 max-w-md text-lg leading-relaxed text-stone">{t.membership.intro}</p>
-          <p className="reveal mt-4 max-w-md font-serif text-xl leading-snug font-light text-ink md:text-2xl">{t.membership.perks}</p>
-          {/* The proposition in three verified facts, set as a quiet hairline list. */}
-          <ul className="reveal mt-10 max-w-lg divide-y divide-ink/15 border-y border-ink/15 text-sm text-stone">
-            {t.membership.details.facts.map((fact) => (
-              <li key={fact} className="py-3">
-                {fact}
-              </li>
+          {/* What membership gives, told as a short story (client, 2026-11-26), then one clear way in. */}
+          <div className="reveal mt-8 max-w-xl space-y-5">
+            {m.story.map((paragraph, i) => (
+              <p key={paragraph} className={i === 1 ? "font-serif text-2xl leading-snug font-light text-ink md:text-3xl" : "text-lg leading-relaxed text-stone"}>
+                {paragraph}
+              </p>
             ))}
-          </ul>
-
-          {/* Two clearly different paths: the open club (primary) and the upcoming Havnegade
-              pre-registration (secondary), on the beige ground (client, 2026-11-24: no black boxes). */}
-          <div className="mt-14 grid gap-10 2xl:grid-cols-2 2xl:items-start">
-            <div className="reveal border-t border-ink/20 pt-7">
-              <p className="eyebrow text-wood">{lobby.label}</p>
-              <h3 className="mt-3 font-serif text-3xl font-light md:text-[2.125rem]">{lobby.title}</h3>
-              <p className="mt-4 max-w-sm leading-relaxed text-stone">{lobby.body}</p>
-              <InternalAction href={`${pages.signup(locale)}#refshaleoen`} variant="dark" className="mt-8 max-sm:w-full">
-                {lobby.cta}
-              </InternalAction>
-            </div>
-            <div className="reveal border-t border-ink/20 pt-7">
-              <p className="eyebrow text-wood">{havnegade.label}</p>
-              <h3 className="mt-3 font-serif text-[1.75rem] font-light">{havnegade.title}</h3>
-              <p className="mt-4 max-w-sm leading-relaxed text-stone">{havnegade.body}</p>
-              <InternalAction href={`${pages.signup(locale)}#havnegade`} variant="outline" className="mt-8 max-sm:w-full">
-                {havnegade.cta}
-              </InternalAction>
-            </div>
           </div>
+          <p className="reveal mt-8 max-w-xl border-t border-ink/15 pt-4 text-sm text-stone">{m.priceLine}</p>
+          {/* Opens the Refshaleøen sign-up in the booking pop-up (see BookingDialog). */}
+          <a href={links.signupRefshaleoen} className={buttonClass("dark", "reveal mt-10 self-start max-sm:w-full")}>
+            {m.cta}
+          </a>
+          <a href={links.signupHavnegade} className="link-underline reveal mt-6 self-start py-1 text-sm text-stone">
+            {m.havnegadeLink}
+          </a>
         </div>
       </div>
     </section>

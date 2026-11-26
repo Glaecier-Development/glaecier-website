@@ -157,10 +157,17 @@ export const en: Dictionary = {
   membership: {
     eyebrow: "Membership",
     heading: "A community on the water",
-    intro: "A private members’ club on the water – come whenever it suits you.",
-    // Soho House-inspired (client, 2026-11-24). VERIFIED (glaecier.com: Members Gus Fri & Sun 19–20, member events,
-    // "eksklusive rabatter hos lokale butikker").
-    perks: "As a member you have access to events and experiences you won’t find anywhere else – Members Gus every Friday and Sunday evening, member events and exclusive discounts at local shops.",
+    // Told as a story of what membership gives (client, 2026-11-26). VERIFIED on glaecier.com: 10 visits a month,
+    // Members Gus Fri & Sun evening, member events, Open Gus at 99 DKK for members, up to two friends (BAF), discounts at
+    // local shops, community across age, background and life situation; prices from 299 DKK, start-up 399, 3 months.
+    story: [
+      "Membership of Glaecier is a place of your own on the water. Come whenever it suits you – up to 10 visits a month – and move between the heat of the panorama sauna and the floating pool at your own pace.",
+      "As a member you have access to events and experiences you won’t find anywhere else: Members Gus every Friday and Sunday evening, member events, Open Gus at the member price of 99 DKK, and the chance to bring up to two friends.",
+      "And you become part of a community where people meet across age, background and life situation – with exclusive discounts at local shops along the way.",
+    ],
+    priceLine: "Priced by age – from 299 DKK a month · Start-up fee 399 DKK · 3-month binding period",
+    cta: "Sign up for membership at Refshaleøen",
+    havnegadeLink: "Havnegade opens early 2027 – pre-register",
     paths: [
       {
         label: "Refshaleøen",
