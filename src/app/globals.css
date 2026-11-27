@@ -1,15 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #1c1b19;
-  --color-paper: #f5f1ea;
-  --color-sand: #e9e0d2;
-  --color-stone: #625b52; /* muted text on paper: 5.9:1 */
-  --color-wood: #835733; /* accent text on paper: 5.6:1 */
-  --color-harbour: #233743;
-  --color-mist: #cfd6d6;
-  --color-fog: #b9b0a4; /* muted text on ink/harbour */
-  --color-charcoal: #1f1f1f; /* dark grey, almost black (client, 2026-11-20); footer background */
+  /* Glaecier Brand Book 2026 (colour, p. 8–9). Use only these – and tints of them – everywhere.
+     Primary: Harbour Night (main dark background and text) and Steam (warm white: text on photos, light pages).
+     Secondary: Deep Harbour (membership, community), Teak (gus, gifting, warm topics), Harbour Sky (sparingly).
+     Accents: Warm Stone (thin lines, small labels on dark), Golden Hour (tiny accents only).
+     Balance: about 60% Harbour Night and dark photography, 25% Steam, 10% secondary, 5% accents. */
+  --color-harbour-night: #1c1b19;
+  --color-steam: #f7f2ea;
+  --color-deep-harbour: #1c2a44;
+  --color-teak: #4a2e1c;
+  --color-harbour-sky: #5f7ea0;
+  --color-warm-stone: #9c8d80;
+  --color-golden-hour: #d19d69;
+
+  /* The names the components use, mapped onto the brand palette. */
+  --color-ink: var(--color-harbour-night);
+  --color-paper: var(--color-steam);
+  --color-sand: color-mix(in srgb, var(--color-warm-stone) 16%, var(--color-steam)); /* quiet section ground: a Warm Stone tint */
+  --color-stone: color-mix(in srgb, var(--color-harbour-night) 72%, var(--color-steam)); /* muted text on Steam (≈7:1) */
+  --color-wood: var(--color-teak); /* labels and accent text on Steam (≈11:1; Warm Stone is too faint for small text there) */
+  --color-harbour: var(--color-deep-harbour);
+  --color-mist: var(--color-harbour-sky);
+  --color-fog: var(--color-warm-stone); /* muted text and labels on Harbour Night / Deep Harbour */
+  --color-charcoal: var(--color-harbour-night); /* footer */
 
   --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;

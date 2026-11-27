@@ -8,11 +8,12 @@ import { isLocale, publishedLocales } from "@/i18n/config";
 import { pageMetadata } from "@/lib/metadata";
 import "../globals.css";
 
-// Manrope is the sans used on the current glaecier.com. Headings use Cormorant Garamond, a classic Garamond close to the
-// Soho House look the client asked for (2026-11-24). Only 400–600 are loaded, so the "font-light" headings render at
-// 400 – the regular weight that matches that look.
+// Glaecier Brand Book 2026 (typography, p. 10): headlines in Cormorant Garamond, Light or Regular, never bold; spaced
+// capitals for short titles; italic for quotes. Only Regular (+ italic) is loaded, so every heading renders at 400 –
+// the weight the client chose (2026-11-24). Body text should be Glacial Indifference; until its font files are added,
+// Manrope stands in (Glacial Indifference is not on Google Fonts).
 const sans = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
-const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-cormorant", display: "swap", style: ["normal", "italic"] });
+const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400"], variable: "--font-cormorant", display: "swap", style: ["normal", "italic"] });
 
 type Props = { children: ReactNode; params: Promise<{ lang: string }> };
 
