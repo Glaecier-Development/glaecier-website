@@ -7,7 +7,7 @@ import { buttonClass } from "@/components/ui/buttons";
 import { Photo } from "@/components/ui/Photo";
 
 /**
- * Gift card, Villa Copenhagen-style: a harbour-blue panel with title, one line and the button beside a photo, centred
+ * Gift card, Villa Copenhagen-style: a Teak panel (the brand colour for gifting) with title, one line and the button beside a photo, centred
  * with the same space on both sides. Shown above the footer on every page except the gift card page.
  */
 export function GiftBanner({ t, locale }: { t: Dictionary; locale: Locale }) {
@@ -15,7 +15,7 @@ export function GiftBanner({ t, locale }: { t: Dictionary; locale: Locale }) {
   return (
     <aside aria-labelledby="gift-banner-title" className="bg-paper py-24 md:py-36">
       <div className="mx-auto grid w-[84%] max-w-[90rem] md:min-h-[34rem] md:grid-cols-2">
-        <div className="flex flex-col justify-center bg-harbour px-6 py-12 text-paper md:px-12 lg:px-16">
+        <div className="flex flex-col justify-center bg-teak px-6 py-12 text-paper md:px-12 lg:px-16">
           <h2 id="gift-banner-title" className="font-serif text-5xl leading-[1] font-light tracking-[-0.01em] uppercase md:text-7xl">
             {b.heading}
           </h2>

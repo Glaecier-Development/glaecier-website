@@ -44,6 +44,18 @@ behind the current design, and where the work stands.
 
 ## Decisions
 
+- **Brand (Glaecier Brand Book 2026, client 2026-11-27)** – always:
+  - Colours: only the brand palette and tints of it, defined once in `src/app/globals.css` – Harbour Night `#1C1B19`
+    (dark background, text), Steam `#F7F2EA` (light pages, text on photos), Deep Harbour `#1C2A44` (membership,
+    community), Teak `#4A2E1C` (gus, gifting), Harbour Sky `#5F7EA0` (sparingly), Warm Stone `#9C8D80` (thin lines,
+    small labels on dark), Golden Hour `#D19D69` (tiny accents). Never add hex colours in components.
+  - Type: headlines in Cormorant Garamond, Light/Regular (the site uses Regular), never bold; spaced capitals for short
+    titles; italic for quotes. Body, labels and buttons in Glacial Indifference (Regular; Bold only for dates, times,
+    prices). Glacial Indifference isn't on Google Fonts: until its files are added, Manrope stands in.
+  - Voice: calm, warm, quietly confident; invite rather than sell; premium, never "exclusive"; no hype.
+  - Photography: real moments, natural light, the harbour present; no heavy filters, no AI imagery.
+  - Copy for the website describes Glaecier as "A sanctuary on the water"; the slogan is "Breathe out. Dive in."
+
 - **Booking (`/book/`)**: embeds the live booking app `https://book.glaecier.com/` in an iframe (it sends no
   X-Frame-Options / frame-ancestors). `src/components/ui/BookingFrame.tsx` adds a branded loader, failure detection
   (no-cors probe) with retry, a slow-load hint after 15 s and a note once the frame navigates to Flexybox checkout.

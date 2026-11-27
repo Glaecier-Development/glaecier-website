@@ -104,7 +104,7 @@ export function AboutPage({ t, locale }: Props) {
             </h2>
             <p className="reveal mt-8 text-lg leading-relaxed text-stone">{a.community.body}</p>
             <figure className="reveal mt-10 border-l border-wood pl-6">
-              <blockquote className="font-serif text-2xl leading-snug font-light text-ink md:text-3xl">“{a.community.quote}”</blockquote>
+              <blockquote className="font-serif text-2xl leading-snug font-light text-ink italic md:text-3xl">“{a.community.quote}”</blockquote>
               <figcaption className="eyebrow mt-4 text-wood">{a.community.quoteBy}</figcaption>
             </figure>
             <Link prefetch={false} href={pages.signup(locale)} className={buttonClass("dark", "reveal mt-10 max-sm:w-full")}>
