@@ -43,7 +43,7 @@ function LanguageSwitch({ t, locale, page, className = "" }: { t: HeaderText; lo
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 // Photo beside the menu panel on wider screens (Villa Copenhagen-style split menu).
-// The sauna stoves facing the harbour (client, 2026-11-20). Only a 525×676 copy exists; a larger one would look sharper.
+// The sauna stoves facing the harbour (client, 2026-11-20). Now a 1122 px copy (client, 2026-11-27).
 const menuPhoto = `${base}/media/sauna-ovne-mod-havnen-1080.webp`;
 
 /** One row in the menu: an uppercase link with a hairline below; items with children get a +/- toggle. */

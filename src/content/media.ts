@@ -64,9 +64,9 @@ export const media = {
       "The harbour at sunset with a yellow harbour bus on the water and the city's spires beyond the quay",
       "70% 50%",
     ),
-    // Client's choice (2026-11-20). Only a 364×253 copy exists; a larger original would look sharper in the tile.
-    book: m("glaecier-sauna", "Panorama-saunaen med træbænke og åben facade ud mod havnen", "The panorama sauna with timber benches and an open front facing the harbour", "50% 50%"),
-    baf: m("dsc08152", "Gæster i saunaen, set gennem grønne blade", "Guests in the sauna, seen through green leaves", "55% 50%"),
+    // The sauna stoves facing the harbour (client, 2026-11-27).
+    book: m("sauna-ovne-mod-havnen", "Saunaens ovne med sten foran de store vinduer ud mod havnen", "The sauna stoves with stones in front of the large windows facing the harbour", "50% 60%"),
+    baf: m("dsc08126", "En gæst med saunahat ser ud over havnen og en gul havnebus", "A guest in a sauna hat looking out over the harbour and a yellow harbour bus", "55% 40%"),
     // Event photos two at a time, cycling (see PhotoCycle).
     hire: [
       [events.bar, events.samsung],
