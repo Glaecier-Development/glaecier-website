@@ -53,12 +53,13 @@ export function SignupPage({ t, locale }: Props) {
         </div>
       </section>
 
-      {/* The two locations side by side: an open club (primary action) and an upcoming one (secondary action). */}
+      {/* The two locations side by side, the same size and on the same line (client, 2026-11-27); the buttons line up at
+          the bottom: an open club (primary action) and an upcoming one (secondary action). */}
       <section aria-label={`${s.refshaleoen.name} · ${s.havnegade.name}`} className="bg-paper py-24 md:py-36">
         <div className="container-page grid gap-24 lg:grid-cols-2 lg:gap-10 xl:gap-16">
-          <article id="refshaleoen" aria-labelledby="refshaleoen-title" className="scroll-mt-28">
+          <article id="refshaleoen" aria-labelledby="refshaleoen-title" className="flex scroll-mt-28 flex-col">
             <Photo item={media.signup.refshaleoen} locale={locale} sizes="(min-width: 1024px) 45vw, 100vw" effect="reveal" className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" />
-            <div className="reveal mt-10">
+            <div className="reveal mt-10 flex flex-1 flex-col">
               <p className="eyebrow flex items-center gap-3 text-wood">
                 <span aria-hidden="true" className="size-1.5 rounded-full bg-wood" />
                 {s.refshaleoen.status}
@@ -69,15 +70,17 @@ export function SignupPage({ t, locale }: Props) {
               <p className="mt-6 font-serif text-2xl leading-snug font-light">{s.refshaleoen.title}</p>
               <p className="mt-3 max-w-md leading-relaxed text-stone">{s.refshaleoen.body}</p>
               <Points items={s.refshaleoen.points} tone="ink" />
-              <a href={links.signupRefshaleoen} className={buttonClass("dark", "mt-10 max-sm:w-full")}>
-                {s.refshaleoen.cta}
-              </a>
+              <div className="mt-auto pt-10">
+                <a href={links.signupRefshaleoen} className={buttonClass("dark", "max-sm:w-full")}>
+                  {s.refshaleoen.cta}
+                </a>
+              </div>
             </div>
           </article>
 
-          <article id="havnegade" aria-labelledby="havnegade-title" className="scroll-mt-28 lg:mt-32">
+          <article id="havnegade" aria-labelledby="havnegade-title" className="flex scroll-mt-28 flex-col">
             <Photo item={media.signup.havnegade} locale={locale} sizes="(min-width: 1024px) 45vw, 100vw" effect="reveal" className="aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" />
-            <div className="reveal mt-10">
+            <div className="reveal mt-10 flex flex-1 flex-col">
               <p className="eyebrow flex items-center gap-3 text-harbour">
                 <span aria-hidden="true" className="size-1.5 rounded-full border border-harbour" />
                 {s.havnegade.status}
@@ -88,9 +91,11 @@ export function SignupPage({ t, locale }: Props) {
               <p className="mt-6 font-serif text-2xl leading-snug font-light">{s.havnegade.title}</p>
               <p className="mt-3 max-w-md leading-relaxed text-stone">{s.havnegade.body}</p>
               <Points items={s.havnegade.points} tone="ink" />
-              <a href={links.signupHavnegade} className={buttonClass("outline", "mt-10 border-ink/60 hover:border-ink hover:bg-ink/5 max-sm:w-full")}>
-                {s.havnegade.cta}
-              </a>
+              <div className="mt-auto pt-10">
+                <a href={links.signupHavnegade} className={buttonClass("outline", "border-ink/60 hover:border-ink hover:bg-ink/5 max-sm:w-full")}>
+                  {s.havnegade.cta}
+                </a>
+              </div>
             </div>
           </article>
         </div>
